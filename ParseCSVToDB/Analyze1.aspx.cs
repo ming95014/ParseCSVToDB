@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Common;
 using System.Configuration;
+using System.Data;
 
 namespace ParseCSVToDB
 {
@@ -13,7 +14,7 @@ namespace ParseCSVToDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var strSQL = "SELECT Ministry, SUM(decAmount) AS Total " +
+            var strSQL = "SELECT Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt " +
                             "FROM [dbo].[goa_expenses] " +
                             "WHERE decAmount > 0" +
                             "GROUP BY Ministry " +
@@ -22,6 +23,23 @@ namespace ParseCSVToDB
             SqlDataSource1.SelectCommand = strSQL;
             GridView1.DataBind();
             //litError.Text = Common.CommonLib.ShowSQLData(strSQL);
+        }
+
+        int _cnt = 0;
+        protected void OnRowDataBound_GridView1(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                _cnt = 0;
+            }
+            else if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Cells[0].Text = (++_cnt).ToString() + ".";
+                DataRow row = ((DataRowView)e.Row.DataItem).Row;
+                String strTotal = row[1].ToString();
+                String strCnt = row[2].ToString();
+                e.Row.Cells[4].Text = "$" + (Convert.ToDecimal(strTotal) / Convert.ToInt32(strCnt)).ToString("N2");
+            }
         }
     }
 }
