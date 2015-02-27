@@ -4,5 +4,15 @@
 
     <h3>Ministries with Highest Expenses</h3>
 
-    <asp:Literal ID="litResults" runat="server" />
+    <asp:GridView ID="GridView1" runat="server" 
+                  AutoGenerateColumns ="false" 
+                  ShowHeader="true" ShowHeaderWhenEmpty="true" 
+                  DataSourceID="SqlDataSource1">
+        <Columns>
+            <asp:BoundField DataField="Ministry" />
+            <asp:BoundField DataField="Total" DataFormatString="${0:n}" ItemStyle-HorizontalAlign="Right" />
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" />
+    <asp:Literal ID="litError" runat="server" />
 </asp:Content>
