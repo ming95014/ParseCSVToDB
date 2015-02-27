@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseCSVToDB", "ParseCSVToDB\ParseCSVToDB.csproj", "{77EBE944-6330-4336-B011-485F3D324E64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{040C2EB1-CC2F-4B5B-ADDB-D75AC858F0F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{77EBE944-6330-4336-B011-485F3D324E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77EBE944-6330-4336-B011-485F3D324E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77EBE944-6330-4336-B011-485F3D324E64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{040C2EB1-CC2F-4B5B-ADDB-D75AC858F0F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{040C2EB1-CC2F-4B5B-ADDB-D75AC858F0F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{040C2EB1-CC2F-4B5B-ADDB-D75AC858F0F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{040C2EB1-CC2F-4B5B-ADDB-D75AC858F0F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
