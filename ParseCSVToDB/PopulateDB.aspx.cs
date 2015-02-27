@@ -12,10 +12,12 @@ namespace ParseCSVToDB
 {
     public partial class About : Page
     {
+        /*
         protected void Page_Load(object sender, EventArgs e)
         {
             //ParseCSVForFields("c:\\TEMP\\goa_expenses1.csv");
         }
+        */
 
         public void ParseCSVForFields(string dataFileName)
         {
