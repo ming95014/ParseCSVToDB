@@ -13,13 +13,8 @@ namespace Common
         public static string ShowSQLData(string strSQL)
         {
             StringBuilder sb = new StringBuilder();
-            //SqlConnection myConnection = new SqlConnection();
-            SqlConnection myConnection = new SqlConnection("user id=sa;" +
-                                       "password=ming12;server=HPDESKTOPWIN81\\SQLEXPRESS;" +
-                                       "Trusted_Connection=yes;" +
-                                       "database=Alberta3; " +
-                                       "connection timeout=30");
-            //myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+            SqlConnection myConnection = new SqlConnection();
+            myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
             myConnection.Open();
             try
             {
@@ -50,7 +45,6 @@ namespace Common
             }
             catch (Exception ex)
             {
-                //litResult.ForeColor = System.Drawing.Color.Red;
                 sb.Append(ex.Message);
             }
             finally
