@@ -39,7 +39,13 @@ namespace ParseCSVToDB
                 String strTotal = row[1].ToString();
                 String strCnt = row[2].ToString();
                 e.Row.Cells[4].Text = "$" + (Convert.ToDecimal(strTotal) / Convert.ToInt32(strCnt)).ToString("N2");
+                string strSQL = "Select count(distinct(Name)) from [dbo].[goa_expenses] where Ministry=" + Common.CommonLib.Quote(row[0].ToString());
+                int iCnt = Common.CommonLib.GetCount(strSQL);
+                e.Row.Cells[5].Text = iCnt.ToString();
+                e.Row.Cells[6].Text = "$" + (Convert.ToDecimal(strTotal) / iCnt).ToString("N2");
             }
         }
+
+        
     }
 }

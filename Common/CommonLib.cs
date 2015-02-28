@@ -53,5 +53,34 @@ namespace Common
             }
             return sb.ToString();
         }
+
+        public static int GetCount(string strSQL)
+        {
+            int iRet = 0;
+            SqlConnection myConnection = new SqlConnection();
+            myConnection.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+            myConnection.Open();
+            try
+            {
+                SqlCommand myCommand = new SqlCommand();
+                myCommand.Connection = myConnection;
+                myCommand.CommandText = strSQL;
+                iRet = (int)myCommand.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                //sb.Append(ex.Message);
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+            return iRet;
+        }
+
+        public static string Quote(string str)
+        {
+            return "'" + str.Replace("'", "''") + "'";
+        }
     }
 }
