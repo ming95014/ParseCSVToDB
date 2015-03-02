@@ -153,6 +153,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="Analyze1.aspx" />
+    <Content Include="ByExpenses.ascx" />
     <Content Include="ByMinistry.ascx" />
     <Content Include="ByOfficial.ascx" />
     <Content Include="Contact.aspx" />
@@ -266,6 +267,13 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="ByExpenses.ascx.cs">
+      <DependentUpon>ByExpenses.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ByExpenses.ascx.designer.cs">
+      <DependentUpon>ByExpenses.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ByMinistry.ascx.cs">
       <DependentUpon>ByMinistry.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

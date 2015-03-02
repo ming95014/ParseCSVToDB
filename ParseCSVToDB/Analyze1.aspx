@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Analyze1.aspx.cs" Inherits="ParseCSVToDB.Analyze1" %>
 <%@ Register TagPrefix="uc1" TagName="ByMinistry" Src="~/ByMinistry.ascx" %>
 <%@ Register TagPrefix="uc2" TagName="ByOfficial" Src="~/ByOfficial.ascx" %>
+<%@ Register TagPrefix="uc3" TagName="ByExpenses" Src="~/ByExpenses.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
     <h2 style="text-align:center">Reports and Analysis</h2>
@@ -14,6 +15,9 @@
         <asp:View ID="view1" runat="server">
             <uc2:ByOfficial runat="server" />
         </asp:View>
+        <asp:View ID="view2" runat="server">
+            <uc3:ByExpenses runat="server" />
+        </asp:View>
     </asp:MultiView>
 
     <h3>Explore Other Reports : </h3>
@@ -25,5 +29,6 @@
     <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
         <asp:ListItem Text="By Ministries" Value="0" />
         <asp:ListItem Text="By Officials" Value="1" />
+        <asp:ListItem Text="By Expenses" Value="2" />
     </asp:DropDownList>
 </asp:Content>
