@@ -14,6 +14,13 @@ namespace ParseCSVToDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            PopulateGridView1();
+            var strSQL = "Select MIN([DTDateIncurred]) As 'From Date', MAX([DTDateIncurred]) As 'To Date' from [dbo].[goa_expenses];";
+            lblDateRange.Text = Common.CommonLib.ShowSQLData(strSQL, false, false).Replace(" 12:00:00 AM", "");
+        }
+
+        private void PopulateGridView1()
+        {
             var strSQL = "SELECT Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt " +
                             "FROM [dbo].[goa_expenses] " +
                             "WHERE decAmount > 0" +
@@ -22,7 +29,6 @@ namespace ParseCSVToDB
             SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
             SqlDataSource1.SelectCommand = strSQL;
             GridView1.DataBind();
-            //litError.Text = Common.CommonLib.ShowSQLData(strSQL);
         }
 
         int _cnt1 = 0;
@@ -55,6 +61,7 @@ namespace ParseCSVToDB
             }
             else if (e.Row.RowType == DataControlRowType.Footer)
             {
+                e.Row.Cells[1].Text = "Summary Information";
                 e.Row.Cells[2].Text = "$" + dTotal1.ToString("N2");
                 e.Row.Cells[3].Text = iNumExpenses1.ToString("N2");
                 e.Row.Cells[4].Text = "$" + (dTotal1/iNumExpenses1).ToString("N2");

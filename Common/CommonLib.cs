@@ -10,7 +10,7 @@ namespace Common
 {
     public static class CommonLib
     {
-        public static string ShowSQLData(string strSQL)
+        public static string ShowSQLData(string strSQL, bool boolShowSQL, bool boolShowLineNo)
         {
             StringBuilder sb = new StringBuilder();
             SqlConnection myConnection = new SqlConnection();
@@ -23,8 +23,9 @@ namespace Common
                 myCommand.CommandText = strSQL;
                 using (SqlDataReader reader = myCommand.ExecuteReader())
                 {
-                    sb.Append("<b>SQL=" + strSQL + "</b><br/>");
-                    sb.Append("<table border='1' cellspacing='0' cellpadding='0'><tr bgcolor='cornsilk'><td>#</td>");
+                    if (boolShowSQL) sb.Append("<b>SQL=" + strSQL + "</b><br/>");
+                    sb.Append("<table border='1' cellspacing='0' cellpadding='0'><tr bgcolor='cornsilk'>");
+                    if (boolShowSQL) sb.Append("<td>#</td>");
                     // Show Column names
                     for (int i = 0; i < reader.FieldCount; i++)
                         sb.Append("<td align='center'><b>" + reader.GetName(i) + "</b></td>");
@@ -34,7 +35,7 @@ namespace Common
                     int cnt = 1;
                     while (reader.Read())
                     {
-                        sb.Append("<td align='center'>" + cnt++ + "</td>");
+                        if (boolShowLineNo) sb.Append("<td align='center'>" + cnt++ + "</td>");
                         // Show the data for each column
                         for (int i = 0; i < reader.FieldCount; i++)
                             sb.Append("<td>" + reader[i].ToString() + "</td>");
