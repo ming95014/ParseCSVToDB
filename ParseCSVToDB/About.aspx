@@ -26,5 +26,19 @@
             <li>Ranking of people who expensed the most per expense</li>
             <!--<li>Drill down based on largest expenses  ==> this maybe important if only a few big expenses were made</li>-->
         </ul>
+
+        <h3>Context of the Available Data</h3>
+
+        <h4>Date Range</h4>
+        <asp:Label ID="lblDateRange" runat="server" />
+        <hr />
+        <h4>Ministries and number of officials in each ministry</h4>
+        <asp:Label ID="lblMinistries" runat="server" />
+        <hr />
+        <h4>Categories and Types</h4>
+        <asp:Label ID="lblCategories" runat="server" />
+        <hr />
+        <hr />
+
     </div>
 </asp:Content>

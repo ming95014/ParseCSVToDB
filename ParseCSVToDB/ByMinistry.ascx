@@ -1,7 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ByMinistry.ascx.cs" Inherits="ParseCSVToDB.ByMinistry" %>
 
-<h2>Ranking of Ministries with most expenses</h2>
-<h3>Expenses by Ministries</h3>
+<h2>Expenses by Ministries</h2>
+<h3>Ranking of Ministries with most expenses</h3>
+
 <asp:GridView ID="GridView1" runat="server"
     OnRowDataBound="OnRowDataBound_GridView1"
     AutoGenerateColumns="false"

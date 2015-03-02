@@ -9,7 +9,7 @@ namespace ParseCSVToDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var strSQL = "SELECT TOP 30 Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt, Name " +
+            var strSQL = "SELECT TOP 50 Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt, Name " +
                             "FROM [dbo].[goa_expenses] " +
                             "WHERE decAmount > 0" +
                             "GROUP BY Name, Ministry " +

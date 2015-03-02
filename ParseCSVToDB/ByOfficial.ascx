@@ -1,7 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ByOfficial.ascx.cs" Inherits="ParseCSVToDB.ByOfficial" %>
 
-<h2>Ranking of Officials with the higest expenses</h2>
-<h3>Expenses by Officials</h3>
+<h2>Expenses by Officials</h2>
+<h3>Top 50 officials with the higest expenses</h3>
+
 <asp:GridView ID="GridView1" runat="server"
     OnRowDataBound="OnRowDataBound_GridView1"
     AutoGenerateColumns="false"
@@ -42,7 +43,7 @@
         </td>
         <td valign="top">
             <ul>
-                <li>The officials with the higest amount or number of expenses</li>
+                <li>Top 50 officials with the higest <b>amount</b> or <b>number</b> or <b>average per expense</b> by clicking on the headers</li>
                 <!--
                 <li><b>Human Services</b> has expensed the <b>most by amount</b> of all ministries-- <b>$2,900,134.89</b> with <b>590 distinct officials submitting expenses.</b></li>
                 <li><b>Human Services</b> has expensed the <b>most by number</b> of all ministries-- <b>48,099</b></li>
