@@ -46,14 +46,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Challeng Post</a>
+                    <a class="navbar-brand" runat="server" href="~/">Apps for Alberta</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <!--<li><a runat="server" href="~/">Home</a></li>-->
-                        <li><a runat="server" href="~/About">Objectives</a></li>
-                        <li><a runat="server" href="~/Analyze1">Rank Ministries</a></li>
-                        <li><a runat="server" href="~/Contact">Author</a></li>
+                        <li><a runat="server" href="~/About">Objectives and Context Data</a></li>
+                        <li><a runat="server" href="~/Analyze1">Reports and Analysis</a></li>
+                        <li><a runat="server" href="~/Contact">Author and Credits</a></li>
                     </ul>
                     <!--
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
