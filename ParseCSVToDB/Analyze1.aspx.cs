@@ -25,16 +25,19 @@ namespace ParseCSVToDB
             //litError.Text = Common.CommonLib.ShowSQLData(strSQL);
         }
 
-        int _cnt = 0;
+        int _cnt1 = 0;
+        decimal dTotal1 = 0;
+        int iNumExpenses1 = 0;
+        int iOfficials1 = 0;
         protected void OnRowDataBound_GridView1(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Header)
             {
-                _cnt = 0;
+                _cnt1 = 0;
             }
             else if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[0].Text = (++_cnt).ToString() + ".";
+                e.Row.Cells[0].Text = (++_cnt1).ToString() + ".";
                 DataRow row = ((DataRowView)e.Row.DataItem).Row;
                 String strTotal = row[1].ToString();
                 String strCnt = row[2].ToString();
@@ -43,9 +46,18 @@ namespace ParseCSVToDB
                 int iCnt = Common.CommonLib.GetCount(strSQL);
                 e.Row.Cells[5].Text = iCnt.ToString();
                 e.Row.Cells[6].Text = "$" + (Convert.ToDecimal(strTotal) / iCnt).ToString("N2");
+                dTotal1 += Convert.ToDecimal(strTotal);
+                iNumExpenses1 += Convert.ToInt32(strCnt);
+                iOfficials1 += iCnt;
             }
-        }
-
-        
+            else if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                e.Row.Cells[2].Text = "$" + dTotal1.ToString("N2");
+                e.Row.Cells[3].Text = iNumExpenses1.ToString("N2");
+                e.Row.Cells[4].Text = "$" + (dTotal1/iNumExpenses1).ToString("N2");
+                e.Row.Cells[5].Text = iOfficials1.ToString("N2");
+                e.Row.Cells[6].Text = "$" + (dTotal1 / iOfficials1).ToString("N2");
+            }
+        }      
     }
 }
