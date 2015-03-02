@@ -25,7 +25,7 @@ namespace Common
                 {
                     if (boolShowSQL) sb.Append("<b>SQL=" + strSQL + "</b><br/>");
                     sb.Append("<table border='1' cellspacing='0' cellpadding='0'><tr bgcolor='cornsilk'>");
-                    if (boolShowSQL) sb.Append("<td>#</td>");
+                    if (boolShowLineNo) sb.Append("<td>#</td>");
                     // Show Column names
                     for (int i = 0; i < reader.FieldCount; i++)
                         sb.Append("<td align='center'><b>" + reader.GetName(i) + "</b></td>");

@@ -2,6 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <!--<h2><%: Title %>.</h2>-->
+    <h2 style="text-align:center">Author and Credits</h2>
     <h3>Ming Chien</h3>
     <!--
     <address>

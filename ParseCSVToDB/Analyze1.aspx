@@ -3,7 +3,8 @@
 <%@ Register TagPrefix="uc2" TagName="ByOfficial" Src="~/ByOfficial.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
-    <h2>Date Range</h2>
+    <h2 style="text-align:center">Reports and Analysis</h2>
+    <h3>Date Range</h3>
     <asp:Label ID="lblDateRange" runat="server" />
 
     <asp:MultiView ID="mv" runat="server">
@@ -17,7 +18,7 @@
 
     <h3>Explore Other Reports : </h3>
 
-    <a runat="server" href="~/About">Back to Objectives</a><br />
+    <a runat="server" href="~/About">Back to Objectives and Context Data</a><br />
 
     Or Jump to other reports below :
 

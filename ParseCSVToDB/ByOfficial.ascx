@@ -2,7 +2,7 @@
 
 <h2>Expenses by Officials</h2>
 
-<h3>Top <asp:Literal ID="litTopN" runat="server" /> officials with the higest expenses</h3>
+<h3>Top <asp:Literal ID="litTopN" runat="server" /> officials with the higest total expenses</h3>
 
 <asp:GridView ID="GridView1" runat="server"
     OnRowDataBound="OnRowDataBound_GridView1"

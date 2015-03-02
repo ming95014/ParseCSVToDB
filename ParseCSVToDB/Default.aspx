@@ -2,9 +2,9 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1>Challeng Post</h1>
+    <h1 style="text-align:center">Challeng Post</h1>
 
-    <h2>Apps for Alberta</h2>
+    <h2 style="text-align:center">Apps for Alberta</h2>
 
     <h3>Use Alberta open data to create apps for Alberta</h3>
     

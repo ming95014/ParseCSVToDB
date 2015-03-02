@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div>
-        <h3>Objectives</h3>
+        <h2 style="text-align:center">Objectives and Context Data</h2>
 
         <h4>Public Disclosure of Travel and Expenses</h4>
         <p>
@@ -35,7 +35,10 @@
         <h4>Ministries and number of officials in each ministry</h4>
         <asp:Label ID="lblMinistries" runat="server" />
         <hr />
-        <h4>Categories and Types</h4>
+        <h4>Officials Positions filing expenses</h4>
+        <asp:Label ID="lblPositions" runat="server" />
+        <hr />
+        <h4>Categories and Types of Expenses</h4>
         <asp:Label ID="lblCategories" runat="server" />
         <hr />
         <hr />
