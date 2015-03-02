@@ -9,14 +9,27 @@ namespace ParseCSVToDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var strSQL = "SELECT TOP 50 Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt, Name " +
-                            "FROM [dbo].[goa_expenses] " +
-                            "WHERE decAmount > 0" +
-                            "GROUP BY Name, Ministry " +
-                            "ORDER BY SUM(decamount) DESC ";
-            SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
-            SqlDataSource1.SelectCommand = strSQL;
-            GridView1.DataBind();
+            if (!IsPostBack)
+            {
+                var strTop = Request.QueryString["top"] != null ? Request.QueryString["top"].ToString() : "25";
+                try
+                {
+                    ddlTopN.SelectedValue = litTopN.Text = strTop;
+                }
+                catch
+                {
+                    ddlTopN.SelectedIndex = 0;
+                }
+
+                var strSQL = "SELECT TOP " + strTop + " Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt, Name " +
+                                "FROM [dbo].[goa_expenses] " +
+                                "WHERE decAmount > 0" +
+                                "GROUP BY Name, Ministry " +
+                                "ORDER BY SUM(decamount) DESC ";
+                SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+                SqlDataSource1.SelectCommand = strSQL;
+                GridView1.DataBind();
+            }
         }
 
         int _cnt1 = 0;
@@ -35,7 +48,7 @@ namespace ParseCSVToDB
                 String strTotal = row[1].ToString();
                 String strCnt = row[2].ToString();
                 e.Row.Cells[5].Text = "$" + (Convert.ToDecimal(strTotal) / Convert.ToInt32(strCnt)).ToString("N2");
-                
+
                 // for footer
                 dTotal1 += Convert.ToDecimal(strTotal);
                 iNumExpenses1 += Convert.ToInt32(strCnt);
@@ -47,6 +60,11 @@ namespace ParseCSVToDB
                 e.Row.Cells[4].Text = iNumExpenses1.ToString("N0");
                 e.Row.Cells[5].Text = "$" + (dTotal1 / iNumExpenses1).ToString("N2");
             }
-        }   
+        }
+
+        protected void OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            Response.Redirect("/Analyze1?v=1&top=" + ddlTopN.SelectedValue);
+        }
     }
 }

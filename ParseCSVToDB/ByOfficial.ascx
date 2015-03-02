@@ -1,7 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ByOfficial.ascx.cs" Inherits="ParseCSVToDB.ByOfficial" %>
 
 <h2>Expenses by Officials</h2>
-<h3>Top 50 officials with the higest expenses</h3>
+
+<h3>Top <asp:Literal ID="litTopN" runat="server" /> officials with the higest expenses</h3>
 
 <asp:GridView ID="GridView1" runat="server"
     OnRowDataBound="OnRowDataBound_GridView1"
@@ -55,4 +56,13 @@
         </td>
     </tr>
 </table>
+
+<<h3>Additional Options</h3>
 <asp:Literal ID="litError" runat="server" />
+<h4>Change number of officials in the report: </h4>
+See : <asp:DropDownList ID="ddlTopN" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
+        <asp:ListItem>25</asp:ListItem>
+        <asp:ListItem>50</asp:ListItem>
+        <asp:ListItem>75</asp:ListItem>
+        <asp:ListItem>100</asp:ListItem>
+      </asp:DropDownList>

@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ByMinistry.ascx.cs" Inherits="ParseCSVToDB.ByMinistry" %>
 
-<h2>Expenses by Ministries</h2>
+<h2>Expenses by All Ministries</h2>
 <h3>Ranking of Ministries with most expenses</h3>
 
 <asp:GridView ID="GridView1" runat="server"

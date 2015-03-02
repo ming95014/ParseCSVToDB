@@ -6,11 +6,6 @@
     <h2>Date Range</h2>
     <asp:Label ID="lblDateRange" runat="server" />
 
-    <h3>View the Report based on : </h3>
-    <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
-        <asp:ListItem Text="By Ministries" Value="0" />
-        <asp:ListItem Text="By Officials" Value="1" />
-    </asp:DropDownList>
     <asp:MultiView ID="mv" runat="server">
         <asp:View ID="view0" runat="server">
             <uc1:ByMinistry runat="server" />
@@ -19,4 +14,15 @@
             <uc2:ByOfficial runat="server" />
         </asp:View>
     </asp:MultiView>
+
+    <h3>Explore Other Reports : </h3>
+
+    <a runat="server" href="~/About">Back to Objectives</a><br />
+
+    Or Jump to other reports below :
+
+    <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
+        <asp:ListItem Text="By Ministries" Value="0" />
+        <asp:ListItem Text="By Officials" Value="1" />
+    </asp:DropDownList>
 </asp:Content>
