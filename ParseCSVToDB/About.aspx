@@ -9,8 +9,8 @@
         We ultimately wanted to know if the money that was expensed by our public officials were reasonable, and not being abuse.
         </p>
         <ul>
-            <li><a href="Analyze1.aspx">Which ministries are spending the most, and are they reasonable?</a></li>
-            <li>Which officials are spending the most, and are they reasonable?</li>
+            <li><a href="Analyze1.aspx?v=0">Which ministries are spending the most, and are they reasonable?</a></li>
+            <li><a href="Analyze1.aspx?v=1">Which officials are spending the most, and are they reasonable?</a></li>
             <li>What are some of the high expenses per Type and are they reasonable?</li>
             <li>What are some of the high expenses, and are they reasonable?</li>
         </ul>
