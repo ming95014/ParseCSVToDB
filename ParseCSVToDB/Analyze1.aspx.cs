@@ -46,6 +46,9 @@ namespace ParseCSVToDB
                 int iCnt = Common.CommonLib.GetCount(strSQL);
                 e.Row.Cells[5].Text = iCnt.ToString();
                 e.Row.Cells[6].Text = "$" + (Convert.ToDecimal(strTotal) / iCnt).ToString("N2");
+                e.Row.Cells[7].Text = (Convert.ToDecimal(strCnt) / iCnt).ToString("N2");
+
+                // for footer
                 dTotal1 += Convert.ToDecimal(strTotal);
                 iNumExpenses1 += Convert.ToInt32(strCnt);
                 iOfficials1 += iCnt;
@@ -57,6 +60,7 @@ namespace ParseCSVToDB
                 e.Row.Cells[4].Text = "$" + (dTotal1/iNumExpenses1).ToString("N2");
                 e.Row.Cells[5].Text = iOfficials1.ToString("N2");
                 e.Row.Cells[6].Text = "$" + (dTotal1 / iOfficials1).ToString("N2");
+                e.Row.Cells[7].Text = (iNumExpenses1 / iOfficials1).ToString("N2");
             }
         }      
     }
