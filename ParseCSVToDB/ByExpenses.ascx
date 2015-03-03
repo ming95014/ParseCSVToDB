@@ -19,9 +19,9 @@
         <asp:BoundField DataField="Name" HeaderText="A. Official (Order by highest total expenses)" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Position" HeaderText="B. Position" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Ministry" HeaderText="C. Ministry" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
-        <asp:BoundField DataField="Category" HeaderText="D. Category " ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
+        <asp:BoundField DataField="Category" HeaderText="D. Category " ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Type" HeaderText="E. Type" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
-        <asp:BoundField DataField="DateIncurred" HeaderText="F. Date Incurred" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
+        <asp:BoundField DataField="DateIncurred" HeaderText="F. Date Incurred" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Amount" HeaderText="G. Amount " ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Description" HeaderText="H. Description" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Receipt" HeaderText="I. Receipt pdf link" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="10%" />

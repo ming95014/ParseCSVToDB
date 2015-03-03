@@ -37,8 +37,15 @@ namespace Common
                     {
                         if (boolShowLineNo) sb.Append("<td align='center'>" + cnt++ + "</td>");
                         // Show the data for each column
+                        //for (int i = 0; i < reader.FieldCount; i++)
+                        //    sb.Append("<td>" + reader[i].ToString() + "</td>");
                         for (int i = 0; i < reader.FieldCount; i++)
-                            sb.Append("<td>" + reader[i].ToString() + "</td>");
+                        {
+                            if (IsNumeric(reader[i].ToString()))
+                                sb.Append("<td align='right'>" + Convert.ToInt32(reader[i].ToString()).ToString("N0") + "</td>");
+                            else
+                                sb.Append("<td align='center'>" + reader[i].ToString() + "</td>");
+                        }     
                         sb.Append("</tr>");
                     }
                     sb.Append("</table>");
@@ -82,6 +89,15 @@ namespace Common
         public static string Quote(string str)
         {
             return "'" + str.Replace("'", "''") + "'";
+        }
+
+        private static bool IsNumeric(string str)
+        {
+            int result;
+            return (int.TryParse(str, out result));
+            //    return true;
+            //else
+            //    return false;
         }
     }
 }
