@@ -21,7 +21,7 @@
         <asp:BoundField DataField="Ministry" HeaderText="B. Ministry" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="35%" />
         <asp:BoundField DataField="Total" DataFormatString="${0:n}" HeaderText="C. Total Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Cnt" DataFormatString="{0:n0}" HeaderText="D. # of Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
-        <asp:BoundField HeaderText="E. Average amount<br> per Expense (C/D)" HtmlEncode="false" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
+        <asp:BoundField DataField="Average" DataFormatString="${0:n}" HeaderText="E. Average amount<br> per Expense (C/D)" HtmlEncode="false" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
     </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" />

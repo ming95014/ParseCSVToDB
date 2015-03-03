@@ -21,7 +21,7 @@ namespace ParseCSVToDB
                     ddlTopN.SelectedIndex = 0;
                 }
 
-                var strSQL = "SELECT TOP " + strTop + " Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt, Name " +
+                var strSQL = "SELECT TOP " + strTop + " Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt, Name, SUM(decAmount)/COUNT(*) As Average " +
                                 "FROM [dbo].[goa_expenses] " +
                                 "WHERE decAmount > 0" +
                                 "GROUP BY Name, Ministry " +
@@ -47,7 +47,7 @@ namespace ParseCSVToDB
                 DataRow row = ((DataRowView)e.Row.DataItem).Row;
                 String strTotal = row[1].ToString();
                 String strCnt = row[2].ToString();
-                e.Row.Cells[5].Text = "$" + (Convert.ToDecimal(strTotal) / Convert.ToInt32(strCnt)).ToString("N2");
+                //e.Row.Cells[5].Text = "$" + (Convert.ToDecimal(strTotal) / Convert.ToInt32(strCnt)).ToString("N2");
 
                 // for footer
                 dTotal1 += Convert.ToDecimal(strTotal);
