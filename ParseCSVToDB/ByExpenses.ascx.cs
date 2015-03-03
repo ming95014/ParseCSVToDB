@@ -42,6 +42,7 @@ namespace ParseCSVToDB
             {
                 e.Row.Cells[0].Text = (++_cnt1).ToString() + ".";
                 DataRow row = ((DataRowView)e.Row.DataItem).Row;
+                e.Row.Cells[9].Text = "<a tooltip='Click to pop-open a new browser to view the receipt' target='_blank' href='" + row[9].ToString() + "'>receipt</a>";
                 String strAmount = row[7].ToString();
                 dTotal1 += Convert.ToDecimal(strAmount);
             }
