@@ -47,7 +47,7 @@ namespace ParseCSVToDB
                 //                " ORDER BY decamount DESC";
                 //SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
                 //SqlDataSource1.SelectCommand = strSQL;
-                BindGrid();
+                BindGrid("");
             }
         }
 
@@ -76,8 +76,8 @@ namespace ParseCSVToDB
             {
                 e.Row.Cells[0].Text = (++_cnt1).ToString() + ".";
                 DataRow row = ((DataRowView)e.Row.DataItem).Row;
-                e.Row.Cells[9].Text = "<a title='Click to pop-open a new browser to view the receipt' target='_blank' href='" + row[9].ToString() + "'>receipt</a>";
-                String strAmount = row[7].ToString();
+                //e.Row.Cells[10].Text = "<a title='Click to pop-open a new browser to view the receipt' target='_blank' href='" + row[10].ToString() + "'>receipt</a>";
+                String strAmount = row[8].ToString();
                 dTotal1 += Convert.ToDecimal(strAmount);
             }
             else if (e.Row.RowType == DataControlRowType.Footer)
@@ -92,7 +92,7 @@ namespace ParseCSVToDB
             Response.Redirect("/Analyze1?v=2&top=" + ddlTopN.SelectedValue);
         }
 
-        protected void BindGrid()
+        protected void BindGrid(string strOrderBy)
         {
             if (!IsPostBack)
             {
@@ -106,9 +106,10 @@ namespace ParseCSVToDB
                     ddlTopN.SelectedIndex = 0;
                 }
             }
-            var strSQL = "SELECT TOP " + ddlTopN.SelectedValue + " Ministry,Position,Name,Category,Type,DateIncurred,Amount,decAmount,Description,Receipt" +
-                               " FROM [dbo].[goa_expenses]" +
-                               " ORDER BY decamount DESC";
+
+            strOrderBy = (strOrderBy == string.Empty) ? "decamount DESC" : strOrderBy.Replace("Amount", "decAmount").Replace("DateIncurred", "DTDateIncurred");
+            var strSQL = "SELECT TOP " + ddlTopN.SelectedValue + " Ministry,Position,Name,Category,Type,DateIncurred,DTDateIncurred,Amount,decAmount,Description,Receipt" +
+                               " FROM [dbo].[goa_expenses] ORDER BY " + strOrderBy;
             dataTable = fillDataTable(ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString, strSQL);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
@@ -117,11 +118,12 @@ namespace ParseCSVToDB
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
             SetSortDirection(SortDireaction);
-            if (dataTable != null)
+            if (dataTable == null)
+                BindGrid(e.SortExpression + " " + _sortDirection);
             {
                 //Sort the data.
                 dataTable.DefaultView.Sort = e.SortExpression + " " + _sortDirection;
-                BindGrid();
+                
                 SortDireaction = _sortDirection;
                 int columnIndex = 0;
                 foreach (DataControlFieldHeaderCell headerCell in GridView1.HeaderRow.Cells)
@@ -140,14 +142,13 @@ namespace ParseCSVToDB
         {
             if (sortDirection == "ASC")
             {
-                _sortDirection = "DESC";
-                sortImage.ImageUrl = "view_sort_ascending.png";
-
+                _sortDirection = "DESC";              
+                sortImage.ImageUrl = "../images/view_sort_descending.png";
             }
             else
             {
                 _sortDirection = "ASC";
-                sortImage.ImageUrl = "view_sort_descending.png";
+                sortImage.ImageUrl = "../images/view_sort_ascending.png";
             }
         }
         /*
