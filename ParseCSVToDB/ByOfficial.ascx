@@ -7,7 +7,7 @@
 <asp:GridView ID="GridView1" runat="server"
     OnRowDataBound="OnRowDataBound_GridView1"
     AutoGenerateColumns="false"
-    ShowFooter="true"
+    ShowFooter="true" GridLines="None"
     ShowHeaderWhenEmpty="true"
     DataSourceID="SqlDataSource1">
     <AlternatingRowStyle BackColor="lightgrey" />

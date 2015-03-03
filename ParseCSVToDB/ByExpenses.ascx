@@ -6,7 +6,7 @@
 
 <asp:GridView ID="GridView1" runat="server" OnRowDataBound="OnRowDataBound_GridView1"
     AutoGenerateColumns="false"
-    ShowFooter="true"
+    ShowFooter="true" GridLines="None"
     ShowHeaderWhenEmpty="true"
     DataSourceID="SqlDataSource1">
     <AlternatingRowStyle BackColor="lightgrey" />
@@ -15,7 +15,7 @@
     <FooterStyle Height="30px" BackColor="#6DC2FF" Font-Size="15px" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="Right" Font-Bold="true" />
     <RowStyle Height="20px" Font-Size="13px" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" />
     <Columns>
-        <asp:TemplateField HeaderText="#" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
+        <asp:TemplateField HeaderText="#" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="1%"/>
         <asp:BoundField DataField="Name" HeaderText="A. Official (Order by highest total expenses)" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Position" HeaderText="B. Position" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Ministry" HeaderText="C. Ministry" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
