@@ -6,6 +6,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <script type="text/javascript" src="Scripts/jquery-latest.js"></script>
+    <script type="text/javascript" src="Scripts/TableSorter.js"></script>
+
     <div id="divToExport" runat="server">
         <h2 style="text-align: center">Reports and Analysis</h2>
         <h3>Date Range</h3>

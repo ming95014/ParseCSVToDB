@@ -1,12 +1,17 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ByMinistry.ascx.cs" Inherits="ParseCSVToDB.ByMinistry" %>
 
+    <title>Table Sorter - Employees</title>
+
+
+
 <h2>Expenses by All Ministries</h2>
 <h3>Ranking of Ministries with most expenses</h3>
 
 <asp:GridView ID="GridView1" runat="server"
-    OnRowDataBound="OnRowDataBound_GridView1"
+    OnRowDataBound="OnRowDataBound_GridView1" 
+    OnDataBound="GridView1_DataBound"   
     AutoGenerateColumns="false"
-    ShowFooter="true" GridLines="None"
+    ShowFooter="true" GridLines="None" AllowSorting="true"
     ShowHeaderWhenEmpty="true"
     DataSourceID="SqlDataSource1">
     <AlternatingRowStyle BackColor="lightgrey" />
@@ -16,9 +21,9 @@
     <RowStyle Height="20px" Font-Size="13px" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" />
     <Columns>
         <asp:TemplateField HeaderText="#" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="1%"/>
-        <asp:BoundField DataField="Ministry" HeaderText="A. Ministry (Order by highest total expenses)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="35%" />
-        <asp:BoundField DataField="Total" DataFormatString="${0:n}" HeaderText="B. Total Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
-        <asp:BoundField DataField="Cnt" DataFormatString="{0:n0}" HeaderText="C. # of Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
+        <asp:BoundField DataField="Ministry" HeaderText="A. Ministry (Order by highest total expenses)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="35%" SortExpression="Ministry" />
+        <asp:BoundField DataField="Total" DataFormatString="${0:n}" HeaderText="B. Total Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Total" />
+        <asp:BoundField DataField="Cnt" DataFormatString="{0:n0}" HeaderText="C. # of Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Cnt" />
         <asp:BoundField HeaderText="D. Average amount<br> per Expense (B/C)" HtmlEncode="false" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
         <asp:BoundField DataFormatString="{0:n0}" HeaderText="E. # of distinct officials submitting expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
         <asp:BoundField DataFormatString="{0:n0}" HeaderText="F. Average expenses per distinct official (B/E)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />

@@ -13,7 +13,8 @@ namespace ParseCSVToDB
                             "FROM [dbo].[goa_expenses] " +
                             "WHERE decAmount > 0" +
                             "GROUP BY Ministry " +
-                            "ORDER BY SUM(decamount) DESC ";
+                            "ORDER BY 1 DESC ";
+                            //"ORDER BY SUM(decamount) DESC ";
             SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
             SqlDataSource1.SelectCommand = strSQL;
             GridView1.DataBind();
@@ -57,6 +58,16 @@ namespace ParseCSVToDB
                 e.Row.Cells[6].Text = "$" + (dTotal1 / iOfficials1).ToString("N2");
                 e.Row.Cells[7].Text = (iNumExpenses1 / iOfficials1).ToString("N2");
             }
-        }      
+        }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            if (this.GridView1.Rows.Count > 0)
+            {
+                GridView1.UseAccessibleHeader = true;
+                GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
+                GridView1.FooterRow.TableSection = TableRowSection.TableFooter;
+            }
+        }
     }
 }
