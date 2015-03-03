@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Common
 {
@@ -95,9 +96,16 @@ namespace Common
         {
             int result;
             return (int.TryParse(str, out result));
-            //    return true;
-            //else
-            //    return false;
+        }
+
+        public static string TwoDigit(string str)
+        {
+            return str.Trim().Length == 2 ? str : "0" + str;
+        }
+
+        public static string GetYYYYMMDDHHMMSS()
+        {
+            return DateTime.Now.ToString("s");
         }
     }
 }

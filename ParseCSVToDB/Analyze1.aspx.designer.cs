@@ -22,6 +22,15 @@ namespace ParseCSVToDB {
         protected global::System.Web.UI.WebControls.Label lblDateRange;
         
         /// <summary>
+        /// divToExport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divToExport;
+        
+        /// <summary>
         /// mv control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,33 @@ namespace ParseCSVToDB {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View view2;
+        
+        /// <summary>
+        /// ddlExpFileType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlExpFileType;
+        
+        /// <summary>
+        /// txReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txReport;
+        
+        /// <summary>
+        /// btnReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReport;
         
         /// <summary>
         /// ddl1 control.
