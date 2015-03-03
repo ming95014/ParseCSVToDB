@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace Common
 {
@@ -92,7 +91,7 @@ namespace Common
             return "'" + str.Replace("'", "''") + "'";
         }
 
-        private static bool IsNumeric(string str)
+        public static bool IsNumeric(string str)
         {
             int result;
             return (int.TryParse(str, out result));

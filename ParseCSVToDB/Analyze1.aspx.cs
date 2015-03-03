@@ -25,15 +25,15 @@ namespace ParseCSVToDB
                     mv.ActiveViewIndex = 0;
                 }
             }
+            txReport.Text = ddl1.SelectedItem.Text + DateTime.Now.ToString("s").Replace(" ", "-");
         }
 
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            mv.ActiveViewIndex = Convert.ToInt16(ddl1.SelectedValue);
-            //txReport.Text = ddl1.SelectedItem.Text + DateTime.Now.ToString("s");
+            mv.ActiveViewIndex = Convert.ToInt16(ddl1.SelectedValue);          
         }
 
-        protected void btnExcelExport_Click(object sender, EventArgs e)
+        protected void btnExport_Click(object sender, EventArgs e)
         {
             HtmlForm form = new HtmlForm();
             Response.Clear();

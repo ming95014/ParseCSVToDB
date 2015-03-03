@@ -6,11 +6,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2 style="text-align: center">Reports and Analysis</h2>
-    <h3>Date Range</h3>
-    <asp:Label ID="lblDateRange" runat="server" />
-
     <div id="divToExport" runat="server">
+        <h2 style="text-align: center">Reports and Analysis</h2>
+        <h3>Date Range</h3>
+        <asp:Label ID="lblDateRange" runat="server" />
+  
         <asp:MultiView ID="mv" runat="server">
             <asp:View ID="view0" runat="server">
                 <uc1:ByMinistry runat="server" />
@@ -23,16 +23,16 @@
             </asp:View>
         </asp:MultiView>
     </div>
-     <hr />
+    <hr />
 
     <h3>Export Report</h3>
     <asp:DropDownList ID="ddlExpFileType" runat="server">
         <asp:ListItem Text="ms-msword" Value=".doc" />
         <asp:ListItem Text="ms-excel" Value=".xls" />
     </asp:DropDownList>
-    <asp:TextBox ID="txReport" runat="server" Text="ReportName" />
+    <asp:TextBox ID="txReport" runat="server" Text="ReportName" Width="300px" />
     <asp:RequiredFieldValidator ControlToValidate="txReport" ErrorMessage="Required" runat="server" />
-    <asp:Button ID="btnReport" runat="server" Text="Export" OnClick="btnExcelExport_Click" />
+    <asp:Button ID="btnReport" runat="server" Text="Export" OnClick="btnExport_Click" />
     <hr />
 
     <h3>Explore Other Reports : </h3>
