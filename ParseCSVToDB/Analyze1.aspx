@@ -11,10 +11,7 @@
 
     <div id="divToExport" runat="server">
         <h2 style="text-align: center">Reports and Analysis</h2>
-        <!--
-        <h3>Date Range</h3>
-        <asp:Label ID="lblDateRange" runat="server" />
-        -->
+
         <asp:MultiView ID="mv" runat="server">
             <asp:View ID="view0" runat="server">
                 <uc1:ByMinistry runat="server" />

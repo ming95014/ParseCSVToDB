@@ -16,11 +16,11 @@
     <RowStyle Height="20px" Font-Size="13px" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" />
     <Columns>
         <asp:TemplateField HeaderText="#" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-        <asp:BoundField DataField="Name" HeaderText="A. Official (Order by highest total expenses)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="35%" SortExpression="Name" />
-        <asp:BoundField DataField="Ministry" HeaderText="B. Ministry" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="35%" SortExpression="Ministry" />
-        <asp:BoundField DataField="Total" DataFormatString="${0:n}" HeaderText="C. Total Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Total" />
-        <asp:BoundField DataField="Cnt" DataFormatString="{0:n0}" HeaderText="D. # of Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Cnt" />
-        <asp:BoundField DataField="Average" DataFormatString="${0:n}" HeaderText="E. Average amount<br> per Expense (C/D)" HtmlEncode="false" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Average" />
+        <asp:BoundField DataField="Name" HeaderText="B. Official (Order by highest total expenses)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="35%" SortExpression="Name" />
+        <asp:BoundField DataField="Ministry" HeaderText="C. Ministry" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="35%" SortExpression="Ministry" />
+        <asp:BoundField DataField="Total" DataFormatString="${0:n}" HeaderText="D. Total Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Total" />
+        <asp:BoundField DataField="Cnt" DataFormatString="{0:n0}" HeaderText="E. # of Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Cnt" />
+        <asp:BoundField DataField="Average" DataFormatString="${0:n}" HeaderText="F. Average amount<br> per Expense (D/E)" HtmlEncode="false" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Average" />
     </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" />
@@ -34,11 +34,11 @@
     <tr>
         <td>
             <ul>
-                <li><b>A. Official</b> -- Name of official.</li>
-                <li><b>B. Ministry</b> -- ministry this official works in.</li>
-                <li><b>C. Total Expenses</b> -- total amount of expenses filed by this ministries.</li>
-                <li><b>D. # of Expenses</b> -- total number of expenses filed by this ministries.</li>
-                <li><b>E. Average amount per Expense (C/D)</b> -- division of column C over D.</li>
+                <li><b>B. Official</b> -- Name of official.</li>
+                <li><b>C. Ministry</b> -- ministry this official works in.</li>
+                <li><b>D. Total Expenses</b> -- total amount of expenses filed by this ministries.</li>
+                <li><b>E. # of Expenses</b> -- total number of expenses filed by this ministries.</li>
+                <li><b>F. Average amount per Expense (D/E)</b> -- division of column D over E.</li>
             </ul>
         </td>
         <td valign="top">
