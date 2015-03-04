@@ -71,8 +71,16 @@ namespace ParseCSVToDB
                 
             else if (Request.QueryString["ministry"] != null)
             {
-                strAndClause += "AND ministry=" + Common.CommonLib.Quote(Request.QueryString["ministry"].ToString());
-                litTitle.Text = "Top " + ddlTopN.Text + " expenses by " + Request.QueryString["ministry"].ToString() + " (" + (this.Page as dynamic).selectedDateRangeText + ")";
+                string strType = string.Empty;
+                if (Request.QueryString["type"] != null)
+                {
+                    strAndClause += "AND type=" + Common.CommonLib.Quote(Request.QueryString["type"].ToString());
+                    strType = " (of Type=" + Request.QueryString["type"].ToString() + ")";
+                }
+                    
+
+                strAndClause += " AND ministry=" + Common.CommonLib.Quote(Request.QueryString["ministry"].ToString());
+                litTitle.Text = " Top " + ddlTopN.Text + strType + " expenses by " + Request.QueryString["ministry"].ToString() + " (" + (this.Page as dynamic).selectedDateRangeText + ")";
             }
             else
                 litTitle.Text = "Top " + ddlTopN.Text + " expenses by Amount (" + (this.Page as dynamic).selectedDateRangeText + ")";
