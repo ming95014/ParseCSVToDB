@@ -6,7 +6,7 @@
 
 <asp:GridView ID="GridView1" runat="server" 
                 OnRowDataBound="OnRowDataBound_GridView1"
-                AllowSorting="true"
+                AllowSorting="false"
                 OnSorting="GridView1_Sorting"
                 AutoGenerateColumns="false" 
                 ShowFooter="true" 
@@ -42,12 +42,3 @@ See : <asp:DropDownList ID="ddlTopN" runat="server" AutoPostBack="true">
         <asp:ListItem>75</asp:ListItem>
         <asp:ListItem>100</asp:ListItem>
       </asp:DropDownList>
-
-<h4>Change date ranges in the report: </h4>
-See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
-    <asp:ListItem Text="All Avaialbe Data" Value="1=1" />
-        <asp:ListItem Text="1/10/2015 to 1/29/2015" Value="DTDateIncurred Between '1/1/2015' AND '12/31/2015'"/>
-        <asp:ListItem Text="1/10/2014 to 12/31/2014" Value="DTDateIncurred Between '1/1/2014' AND '12/31/2014'"/>
-        <asp:ListItem Text="1/1/2013 to 12/31/2013" Value="DTDateIncurred Between '1/1/2013' AND '12/31/2013'"/>
-        <asp:ListItem Text="1/10/2012 to 12/31/2012" Value="DTDateIncurred Between '1/10/2012' AND '12/31/2012'"/>  
-    </asp:DropDownList>

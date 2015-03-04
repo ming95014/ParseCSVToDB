@@ -11,7 +11,7 @@
     OnRowDataBound="OnRowDataBound_GridView1" 
     OnDataBound="GridView1_DataBound"   
     AutoGenerateColumns="false"
-    ShowFooter="true" GridLines="None" AllowSorting="true"
+    ShowFooter="true" GridLines="None" AllowSorting="false"
     ShowHeaderWhenEmpty="true"
     DataSourceID="SqlDataSource1">
     <AlternatingRowStyle BackColor="lightgrey" />
@@ -21,13 +21,13 @@
     <RowStyle Height="20px" Font-Size="13px" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" />
     <Columns>
         <asp:TemplateField HeaderText="#" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="1%"/>
-        <asp:BoundField DataField="Ministry" HeaderText="A. Ministry (Order by highest total expenses)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="35%" SortExpression="Ministry" />
-        <asp:BoundField DataField="Total" DataFormatString="${0:n}" HeaderText="B. Total Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Total" />
-        <asp:BoundField DataField="Cnt" DataFormatString="{0:n0}" HeaderText="C. # of Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Cnt" />
-        <asp:BoundField HeaderText="D. Average amount<br> per Expense (B/C)" HtmlEncode="false" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
-        <asp:BoundField DataFormatString="{0:n0}" HeaderText="E. # of distinct officials submitting expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
-        <asp:BoundField DataFormatString="{0:n0}" HeaderText="F. Average expenses per distinct official (B/E)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
-        <asp:BoundField DataFormatString="{0:n0}" HeaderText="G. Average # expenses per distinct official (C/E)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
+        <asp:BoundField DataField="Ministry" HeaderText="B. Ministry (Order by highest total expenses)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="35%" />
+        <asp:BoundField DataField="Total" DataFormatString="${0:n}" HeaderText="C. Total Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
+        <asp:BoundField DataField="Cnt" DataFormatString="{0:n0}" HeaderText="D. # of Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
+        <asp:BoundField HeaderText="E. Average amount<br> per Expense (C/D)" HtmlEncode="false" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
+        <asp:BoundField DataFormatString="{0:n0}" HeaderText="F. # of distinct officials submitting expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
+        <asp:BoundField DataFormatString="{0:n0}" HeaderText="G. Average expenses per distinct official (C/F)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
+        <asp:BoundField DataFormatString="{0:n0}" HeaderText="H. Average # expenses per distinct official (D/F)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
     </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" />
@@ -41,13 +41,13 @@
     <tr>
         <td>
             <ul>
-                <li><b>A. Ministries</b> -- lists all ministries involved in the data analaysis during the time range.</li>
-                <li><b>B. Total Expenses</b> -- total amount of expenses filed by this ministries.</li>
-                <li><b>C. # of Expenses</b> -- total number of expenses filed by this ministries.</li>
-                <li><b>D. Average amount per Expense (B/C)</b> -- division of column B over C.</li>
-                <li><b>E. # of distinct officials submitting expenses</b> -- for this ministry.</li>
-                <li><b>F. Average expenses per distinct official (B/E)</b> -- division of column B over E.</li>
-                <li><b>G. Average # expenses per distinct official (C/E)</b> -- division of column C over E.</li>
+                <li><b>B. Ministries</b> -- lists all ministries involved in the data analaysis during the time range.</li>
+                <li><b>C. Total Expenses</b> -- total amount of expenses filed by this ministries.</li>
+                <li><b>D. # of Expenses</b> -- total number of expenses filed by this ministries.</li>
+                <li><b>E. Average amount per Expense (B/C)</b> -- division of column B over C.</li>
+                <li><b>F. # of distinct officials submitting expenses</b> -- for this ministry.</li>
+                <li><b>G. Average expenses per distinct official (B/E)</b> -- division of column B over E.</li>
+                <li><b>H. Average # expenses per distinct official (C/E)</b> -- division of column C over E.</li>
             </ul>
         </td>
         <td valign="top">

@@ -11,9 +11,10 @@
 
     <div id="divToExport" runat="server">
         <h2 style="text-align: center">Reports and Analysis</h2>
+        <!--
         <h3>Date Range</h3>
         <asp:Label ID="lblDateRange" runat="server" />
-  
+        -->
         <asp:MultiView ID="mv" runat="server">
             <asp:View ID="view0" runat="server">
                 <uc1:ByMinistry runat="server" />
@@ -27,7 +28,17 @@
         </asp:MultiView>
     </div>
     <hr />
-
+    <!-- Date Range -->
+    <h3>Change date ranges in the report: </h3>
+See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
+    <asp:ListItem Text="All Avaialbe Data" Value="1=1" />
+        <asp:ListItem Text="1/10/2015 to 1/29/2015" Value="DTDateIncurred Between '1/1/2015' AND '12/31/2015'"/>
+        <asp:ListItem Text="1/10/2014 to 12/31/2014" Value="DTDateIncurred Between '1/1/2014' AND '12/31/2014'"/>
+        <asp:ListItem Text="1/1/2013 to 12/31/2013" Value="DTDateIncurred Between '1/1/2013' AND '12/31/2013'"/>
+        <asp:ListItem Text="1/10/2012 to 12/31/2012" Value="DTDateIncurred Between '1/10/2012' AND '12/31/2012'"/>  
+    </asp:DropDownList>
+    <hr />
+    <!-- Export Reports -->
     <h3>Export Report</h3>
     <asp:DropDownList ID="ddlExpFileType" runat="server">
         <asp:ListItem Text="ms-excel" Value=".xls" />
@@ -37,17 +48,13 @@
     <asp:RequiredFieldValidator ControlToValidate="txReport" ErrorMessage="Required" runat="server" />
     <asp:Button ID="btnReport" runat="server" Text="Export" OnClick="btnExport_Click" />
     <hr />
-
+    <!-- Ohter Reports -->
     <h3>Explore Other Reports : </h3>
-
     <a runat="server" href="~/About">Back to Objectives and Context Data</a><br />
-
     Or Jump to other reports below :
-
         <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
             <asp:ListItem Text="By Ministries" Value="0" />
             <asp:ListItem Text="By Officials" Value="1" />
             <asp:ListItem Text="By Expenses" Value="2" />
         </asp:DropDownList>
-
 </asp:Content>
