@@ -6,7 +6,7 @@
 
 <asp:GridView ID="GridView1" runat="server" 
                 OnRowDataBound="OnRowDataBound_GridView1"
-                AllowSorting="false"
+                AllowSorting="true"
                 OnSorting="GridView1_Sorting"
                 AutoGenerateColumns="false" 
                 ShowFooter="true" 
@@ -20,12 +20,12 @@
     <Columns>
         <asp:TemplateField HeaderText="#" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="1%"/>
         <asp:BoundField DataField="Name" HeaderText="A. Official (Order by highest total expenses)" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
-        <asp:BoundField DataField="Position" HeaderText="B. Position" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
-        <asp:BoundField DataField="Ministry" HeaderText="C. Ministry" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
-        <asp:BoundField DataField="Category" HeaderText="D. Category " ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="10%" />
-        <asp:BoundField DataField="Type"     HeaderText="E. Type" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
-        <asp:BoundField DataField="DateIncurred" HeaderText="F. Date Incurred" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="DateIncurred" />
-        <asp:BoundField DataField="Amount" HeaderText="G. Amount " ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Amount" />
+        <asp:BoundField DataField="Position" HeaderText="B. Position" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" SortExpression="Position" />
+        <asp:BoundField DataField="Ministry" HeaderText="C. Ministry" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" SortExpression="Ministry"/>
+        <asp:BoundField DataField="Category" HeaderText="D. Category " ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="10%" SortExpression="Category"/>
+        <asp:BoundField DataField="Type"     HeaderText="E. Type" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" SortExpression="Type"/>
+        <asp:BoundField DataField="DateIncurred" HeaderText="F. Date Incurred" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="DTDateIncurred" />
+        <asp:BoundField DataField="Amount" HeaderText="G. Amount " ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="decAmount" />
         <asp:BoundField DataField="Description" HeaderText="H. Description" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Receipt" HeaderText="I. Receipt pdf link" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="10%" />
     </Columns>
