@@ -59,7 +59,7 @@
 <h3>Additional Options</h3>
 <asp:Literal ID="litError" runat="server" />
 <h4>Change number of expenses in the report: </h4>
-See : <asp:DropDownList ID="ddlTopN" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
+See : <asp:DropDownList ID="ddlTopN" runat="server" AutoPostBack="true">
         <asp:ListItem>25</asp:ListItem>
         <asp:ListItem>50</asp:ListItem>
         <asp:ListItem>75</asp:ListItem>
