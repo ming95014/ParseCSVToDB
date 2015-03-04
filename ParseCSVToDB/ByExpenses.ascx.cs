@@ -33,6 +33,8 @@ namespace ParseCSVToDB
             BindGrid("decamount DESC");
             sortImage.ImageUrl = "../images/view_sort_descending.png";
             GridView1.HeaderRow.Cells[7].Controls.Add(sortImage);
+
+            litTitle.Text = "Top " + ddlTopN.Text + " expenses with the higest amount (" + ddlDateRange.SelectedItem.Text + ")";
         }      
         
         int _cnt1 = 0;
@@ -61,8 +63,10 @@ namespace ParseCSVToDB
         private void BindGrid(string strOrderBy)
         {
             strOrderBy = (strOrderBy == string.Empty) ? "decAmount DESC" : strOrderBy.Replace("Amount", "decAmount").Replace("DateIncurred", "DTDateIncurred");
-            var strSQL = "SELECT TOP " + ddlTopN.SelectedValue + " Ministry,Position,Name,Category,Type,DateIncurred,DTDateIncurred,Amount,decAmount,Description,Receipt" +
-                               " FROM [dbo].[goa_expenses] ORDER BY " + strOrderBy;
+            var strSQL = litSQL.Text = "SELECT TOP " + ddlTopN.SelectedValue + " Ministry,Position,Name,Category,Type,DateIncurred,DTDateIncurred,Amount,decAmount,Description,Receipt" +
+                                       " FROM [dbo].[goa_expenses] " +
+                                       " WHERE " + ddlDateRange.SelectedValue +
+                                       " ORDER BY " + strOrderBy;           
             dataTable = Common.CommonLib.fillDataTable(ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString, strSQL);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();           

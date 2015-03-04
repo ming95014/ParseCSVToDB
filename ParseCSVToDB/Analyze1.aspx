@@ -30,8 +30,8 @@
 
     <h3>Export Report</h3>
     <asp:DropDownList ID="ddlExpFileType" runat="server">
-        <asp:ListItem Text="ms-msword" Value=".doc" />
         <asp:ListItem Text="ms-excel" Value=".xls" />
+        <asp:ListItem Text="ms-msword" Value=".doc" />     
     </asp:DropDownList>
     <asp:TextBox ID="txReport" runat="server" Text="ReportName" Width="300px" />
     <asp:RequiredFieldValidator ControlToValidate="txReport" ErrorMessage="Required" runat="server" />

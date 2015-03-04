@@ -2,7 +2,7 @@
 
 <h2>Expenses by Amount</h2>
 
-<h3>Top <asp:Literal ID="litTopN" runat="server" /> expenses with the higest amount</h3>
+<h3><asp:Literal ID="litTitle" runat="server" /></h3>
 
 <asp:GridView ID="GridView1" runat="server" 
                 OnRowDataBound="OnRowDataBound_GridView1"
@@ -31,31 +31,8 @@
     </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" />
-<!--     Ministry	Position	Name	Category	Type	DateIncurred	Amount	Description	Receipt
-<h3>Legends and Analysis Summary</h3>
-<table cellspacing="0" cellpadding="4" border="1" width="100%">
-    <tr bgcolor="cornsilk">
-        <td width="50%" align="center"><b>Legend</b></td>
-        <td width="50%" align="center"><b>Analysis Summary</b></td>
-    </tr>
-    <tr>
-        <td>
-            <ul>
-                <li><b>A. Official</b> -- Name of official.</li>
-                <li><b>B. Ministry</b> -- ministry this official works in.</li>
-                <li><b>C. Total Expenses</b> -- total amount of expenses filed by this ministries.</li>
-                <li><b>D. # of Expenses</b> -- total number of expenses filed by this ministries.</li>
-                <li><b>E. Average amount per Expense (C/D)</b> -- division of column C over D.</li>
-            </ul>
-        </td>
-        <td valign="top">
-            <ul>
-                <li>Top 50 officials with the higest <b>amount</b> or <b>number</b> or <b>average per expense</b> by clicking on the headers</li>
-            </ul>
-        </td>
-    </tr>
-</table>
--->
+<asp:Literal ID="litSQL" runat="server" Visible="true" />
+<hr />
 <h3>Additional Options</h3>
 <asp:Literal ID="litError" runat="server" />
 <h4>Change number of expenses in the report: </h4>
@@ -65,3 +42,12 @@ See : <asp:DropDownList ID="ddlTopN" runat="server" AutoPostBack="true">
         <asp:ListItem>75</asp:ListItem>
         <asp:ListItem>100</asp:ListItem>
       </asp:DropDownList>
+
+<h4>Change date ranges in the report: </h4>
+See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
+    <asp:ListItem Text="All Avaialbe Data" Value="1=1" />
+        <asp:ListItem Text="1/10/2015 to 1/29/2015" Value="DTDateIncurred Between '1/1/2015' AND '12/31/2015'"/>
+        <asp:ListItem Text="1/10/2014 to 12/31/2014" Value="DTDateIncurred Between '1/1/2014' AND '12/31/2014'"/>
+        <asp:ListItem Text="1/1/2013 to 12/31/2013" Value="DTDateIncurred Between '1/1/2013' AND '12/31/2013'"/>
+        <asp:ListItem Text="1/10/2012 to 12/31/2012" Value="DTDateIncurred Between '1/10/2012' AND '12/31/2012'"/>  
+    </asp:DropDownList>
