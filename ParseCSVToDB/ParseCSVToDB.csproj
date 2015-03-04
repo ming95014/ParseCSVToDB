@@ -156,6 +156,7 @@
     <Content Include="ByExpenses.ascx" />
     <Content Include="ByMinistry.ascx" />
     <Content Include="ByOfficial.ascx" />
+    <Content Include="ByType.ascx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -301,6 +302,13 @@
     </Compile>
     <Compile Include="ByOfficial.ascx.designer.cs">
       <DependentUpon>ByOfficial.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ByType.ascx.cs">
+      <DependentUpon>ByType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ByType.ascx.designer.cs">
+      <DependentUpon>ByType.ascx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

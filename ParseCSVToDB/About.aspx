@@ -12,6 +12,7 @@
             <li><a href="Analyze1.aspx?v=0">Which ministries are spending the most, and are they reasonable?</a></li>
             <li><a href="Analyze1.aspx?v=1">Which officials are spending the most, and are they reasonable?</a></li>            
             <li><a href="Analyze1.aspx?v=2">What are some of the high expenses, and are they reasonable?</a></li>
+            <li><a href="Analyze1.aspx?v=3">What types of expenses constitute the bulk of the expenses, and are they reasonable?</a></li>
             <!--<li>What are some of the high expenses per Type and are they reasonable?</li>-->
         </ul>
         <p>

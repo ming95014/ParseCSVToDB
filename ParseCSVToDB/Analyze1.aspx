@@ -3,6 +3,7 @@
 <%@ Register TagPrefix="uc1" TagName="ByMinistry" Src="~/ByMinistry.ascx" %>
 <%@ Register TagPrefix="uc2" TagName="ByOfficial" Src="~/ByOfficial.ascx" %>
 <%@ Register TagPrefix="uc3" TagName="ByExpenses" Src="~/ByExpenses.ascx" %>
+<%@ Register TagPrefix="uc4" TagName="ByTypes" Src="~/ByType.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -21,6 +22,9 @@
             </asp:View>
             <asp:View ID="view2" runat="server">
                 <uc3:ByExpenses runat="server" />
+            </asp:View>
+            <asp:View ID="view3" runat="server">
+                <uc4:ByTypes runat="server" />
             </asp:View>
         </asp:MultiView>
     </div>
