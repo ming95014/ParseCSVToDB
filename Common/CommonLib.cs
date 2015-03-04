@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -105,6 +106,19 @@ namespace Common
         public static string GetYYYYMMDDHHMMSS()
         {
             return DateTime.Now.ToString("s");
+        }
+
+        public static DataTable fillDataTable(string strConStr, string strSQL)
+        {
+            //string query = "SELECT * FROM dstut.dbo." + table;
+            SqlConnection sqlConn = new SqlConnection(strConStr);
+            sqlConn.Open();
+            SqlCommand cmd = new SqlCommand(strSQL, sqlConn);
+
+            DataTable dt = new DataTable();
+            dt.Load(cmd.ExecuteReader());
+            sqlConn.Close();
+            return dt;
         }
     }
 }

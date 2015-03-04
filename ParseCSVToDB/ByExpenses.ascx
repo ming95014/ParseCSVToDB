@@ -5,12 +5,13 @@
 <h3>Top <asp:Literal ID="litTopN" runat="server" /> expenses with the higest amount</h3>
 
 <asp:GridView ID="GridView1" runat="server" 
-    OnRowDataBound="OnRowDataBound_GridView1" 
-    
-    OnSorting="GridView1_Sorting"
-    AutoGenerateColumns="false" 
-    ShowFooter="true" GridLines="None" AllowSorting="true"
-    ShowHeaderWhenEmpty="true">
+                OnRowDataBound="OnRowDataBound_GridView1"
+                AllowSorting="true"
+                OnSorting="GridView1_Sorting"
+                AutoGenerateColumns="false" 
+                ShowFooter="true" 
+                GridLines="None" 
+                ShowHeaderWhenEmpty="true">
     <AlternatingRowStyle BackColor="lightgrey" />
     <PagerStyle BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" />
     <HeaderStyle Height="30px" BackColor="#6DC2FF" Font-Size="15px" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="Center" />
@@ -22,7 +23,7 @@
         <asp:BoundField DataField="Position" HeaderText="B. Position" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Ministry" HeaderText="C. Ministry" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Category" HeaderText="D. Category " ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="10%" />
-        <asp:BoundField DataField="Type" HeaderText="E. Type" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
+        <asp:BoundField DataField="Type"     HeaderText="E. Type" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="DateIncurred" HeaderText="F. Date Incurred" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="DateIncurred" />
         <asp:BoundField DataField="Amount" HeaderText="G. Amount " ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" SortExpression="Amount" />
         <asp:BoundField DataField="Description" HeaderText="H. Description" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="10%" />

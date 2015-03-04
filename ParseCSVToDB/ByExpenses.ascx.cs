@@ -26,13 +26,12 @@ namespace ParseCSVToDB
         }
         private string _sortDirection;
         private DataTable dataTable;
-
+        private string strTop = "25";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                /*
-                var strTop = Request.QueryString["top"] != null ? Request.QueryString["top"].ToString() : "25";
+                strTop = Request.QueryString["top"] != null ? Request.QueryString["top"].ToString() : "25";
                 try
                 {
                     ddlTopN.SelectedValue = litTopN.Text = strTop;
@@ -41,28 +40,12 @@ namespace ParseCSVToDB
                 {
                     ddlTopN.SelectedIndex = 0;
                 }
-                */
-                //var strSQL = "SELECT TOP " + strTop + " Ministry,Position,Name,Category,Type,DateIncurred,Amount,decAmount,Description,Receipt" +
-                //                " FROM [dbo].[goa_expenses]" +
-                //                " ORDER BY decamount DESC";
-                //SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
-                //SqlDataSource1.SelectCommand = strSQL;
-                BindGrid("");
+
+                BindGrid("decamount DESC");
+                sortImage.ImageUrl = "../images/view_sort_descending.png";
+                GridView1.HeaderRow.Cells[7].Controls.Add(sortImage);
             }
-        }
-
-        public DataTable fillDataTable(string strConStr, string strSQL)
-        {
-            //string query = "SELECT * FROM dstut.dbo." + table;
-            SqlConnection sqlConn = new SqlConnection(strConStr);
-            sqlConn.Open();
-            SqlCommand cmd = new SqlCommand(strSQL, sqlConn);
-
-            DataTable dt = new DataTable();
-            dt.Load(cmd.ExecuteReader());
-            sqlConn.Close();
-            return dt;
-        }
+        }      
         
         int _cnt1 = 0;
         decimal dTotal1 = 0;
@@ -91,26 +74,13 @@ namespace ParseCSVToDB
         {
             Response.Redirect("/Analyze1?v=2&top=" + ddlTopN.SelectedValue);
         }
-
-        protected void BindGrid(string strOrderBy)
+       
+        private void BindGrid(string strOrderBy)
         {
-            if (!IsPostBack)
-            {
-                var strTop = Request.QueryString["top"] != null ? Request.QueryString["top"].ToString() : "25";
-                try
-                {
-                    ddlTopN.SelectedValue = litTopN.Text = strTop;
-                }
-                catch
-                {
-                    ddlTopN.SelectedIndex = 0;
-                }
-            }
-
-            strOrderBy = (strOrderBy == string.Empty) ? "decamount DESC" : strOrderBy.Replace("Amount", "decAmount").Replace("DateIncurred", "DTDateIncurred");
+            strOrderBy = (strOrderBy == string.Empty) ? "decAmount DESC" : strOrderBy.Replace("Amount", "decAmount").Replace("DateIncurred", "DTDateIncurred");
             var strSQL = "SELECT TOP " + ddlTopN.SelectedValue + " Ministry,Position,Name,Category,Type,DateIncurred,DTDateIncurred,Amount,decAmount,Description,Receipt" +
                                " FROM [dbo].[goa_expenses] ORDER BY " + strOrderBy;
-            dataTable = fillDataTable(ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString, strSQL);
+            dataTable = Common.CommonLib.fillDataTable(ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString, strSQL);
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
         }
@@ -118,27 +88,26 @@ namespace ParseCSVToDB
         protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
         {
             SetSortDirection(SortDireaction);
-            if (dataTable == null)
-                BindGrid(e.SortExpression + " " + _sortDirection);
-            {
-                //Sort the data.
-                dataTable.DefaultView.Sort = e.SortExpression + " " + _sortDirection;
-                
-                SortDireaction = _sortDirection;
-                int columnIndex = 0;
-                foreach (DataControlFieldHeaderCell headerCell in GridView1.HeaderRow.Cells)
-                {
-                    if (headerCell.ContainingField.SortExpression == e.SortExpression)
-                    {
-                        columnIndex = GridView1.HeaderRow.Cells.GetCellIndex(headerCell);
-                    }
-                }
 
-                GridView1.HeaderRow.Cells[columnIndex].Controls.Add(sortImage);
+            BindGrid(e.SortExpression + " " + _sortDirection);
+            
+            //Sort the data.
+            dataTable.DefaultView.Sort = e.SortExpression + " " + _sortDirection;
+                
+            SortDireaction = _sortDirection;
+            int columnIndex = 0;
+            foreach (DataControlFieldHeaderCell headerCell in GridView1.HeaderRow.Cells)
+            {
+                if (headerCell.ContainingField.SortExpression == e.SortExpression)
+                {
+                    columnIndex = GridView1.HeaderRow.Cells.GetCellIndex(headerCell);
+                }
             }
+
+            GridView1.HeaderRow.Cells[columnIndex].Controls.Add(sortImage);         
         }
 
-        protected void SetSortDirection(string sortDirection)
+        private void SetSortDirection(string sortDirection)
         {
             if (sortDirection == "ASC")
             {
@@ -151,37 +120,5 @@ namespace ParseCSVToDB
                 sortImage.ImageUrl = "../images/view_sort_ascending.png";
             }
         }
-        /*
-        protected void GridView1_DataBound(object sender, EventArgs e)
-        {
-            if (this.GridView1.Rows.Count > 0)
-            {
-                GridView1.UseAccessibleHeader = true;
-                GridView1.HeaderRow.TableSection = TableRowSection.TableHeader;
-                GridView1.FooterRow.TableSection = TableRowSection.TableFooter;
-            }
-        }
-
-        protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
-        {
-            //Get GridViewRows
-            var rows = GridView1.Rows.Cast<GridViewRow>().Select(a => new
-            {
-                Number = Convert.ToInt32(GridView1.DataKeys[a.RowIndex].Value),
-                NumberText = ((Label)a.FindControl("Label1")).Text
-            });
-            //Get Sort Direction accordingly
-            SortDirection sortDirection = ViewState["SortOrder"] == null ? SortDirection.Descending :
-                                                        (SortDirection)Enum.Parse(typeof(SortDirection), ViewState["SortOrder"].ToString()) == SortDirection.Ascending ?
-                                                                                                    SortDirection.Descending : SortDirection.Ascending;
-            ViewState["SortOrder"] = sortDirection;
-            if (sortDirection == SortDirection.Ascending)
-                rows = rows.OrderBy(a => a.NumberText);
-            else
-                rows = rows.OrderByDescending(a => a.NumberText);
-            GridView1.DataSource = rows.ToList();
-            GridView1.DataBind();
-        }
-        */
     }
 }
