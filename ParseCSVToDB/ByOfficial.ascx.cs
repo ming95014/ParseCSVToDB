@@ -9,30 +9,16 @@ namespace ParseCSVToDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            {
-                /*
-                var strTop = Request.QueryString["top"] != null ? Request.QueryString["top"].ToString() : "25";
-                try
-                {
-                    ddlTopN.SelectedValue = litTopN.Text = strTop;
-                }
-                catch
-                {
-                    ddlTopN.SelectedIndex = 0;
-                }
-                */
-                var strSQL = lblSQL.Text = "SELECT TOP " + ddlTopN.SelectedValue + " Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt, Name, SUM(decAmount)/COUNT(*) As Average " +
-                                            "FROM [dbo].[goa_expenses] " +
-                                            "WHERE decAmount > 0 AND " + (this.Page as dynamic).selectedDateRangeValue +
-                                            "GROUP BY Name, Ministry " +
-                                            "ORDER BY SUM(decamount) DESC ";
-                SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
-                SqlDataSource1.SelectCommand = strSQL;
-                GridView1.DataBind();
+            var strSQL = lblSQL.Text = "SELECT TOP " + ddlTopN.SelectedValue + " Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt, Name, SUM(decAmount)/COUNT(*) As Average " +
+                                        "FROM [dbo].[goa_expenses] " +
+                                        "WHERE decAmount > 0 AND " + (this.Page as dynamic).selectedDateRangeValue +
+                                        "GROUP BY Name, Ministry " +
+                                        "ORDER BY SUM(decamount) DESC ";
+            SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
+            SqlDataSource1.SelectCommand = strSQL;
+            GridView1.DataBind();
 
-                litTitle.Text = "Top " + ddlTopN.Text + " officials with the higest total expenses (" + (this.Page as dynamic).selectedDateRangeText + ")";
-            }
+            litTitle.Text = "Top " + ddlTopN.Text + " officials with the higest total expenses (" + (this.Page as dynamic).selectedDateRangeText + ")";
         }
 
         int _cnt1 = 0;
@@ -48,6 +34,9 @@ namespace ParseCSVToDB
             {
                 e.Row.Cells[0].Text = (++_cnt1).ToString() + ".";
                 DataRow row = ((DataRowView)e.Row.DataItem).Row;
+                e.Row.Cells[1].Text = (++_cnt1).ToString() + ".";
+                e.Row.Cells[1].Text = "<a title='Click to pop-open a new browser to view the details' target='_blank' href='/Analyze1?v=2&name=" + 
+                                                                            Server.UrlEncode(row[3].ToString()) + "'>" + row[3].ToString() + "</a>";
                 String strTotal = row[1].ToString();
                 String strCnt = row[2].ToString();
                 //e.Row.Cells[5].Text = "$" + (Convert.ToDecimal(strTotal) / Convert.ToInt32(strCnt)).ToString("N2");
