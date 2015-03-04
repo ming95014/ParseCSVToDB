@@ -1,13 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ByOfficial.ascx.cs" Inherits="ParseCSVToDB.ByOfficial" %>
 
 <h2>Expenses by Officials</h2>
-
-<h3>Top <asp:Literal ID="litTopN" runat="server" /> officials with the higest total expenses</h3>
+<h3><asp:Literal ID="litTitle" runat="server" /></h3>
 
 <asp:GridView ID="GridView1" runat="server"
     OnRowDataBound="OnRowDataBound_GridView1"
-    AutoGenerateColumns="false"
-    ShowFooter="true" GridLines="None" AllowSorting="true"
+    AutoGenerateColumns="false" 
+    ShowFooter="true" GridLines="None" AllowSorting="false"
     ShowHeaderWhenEmpty="true"
     DataSourceID="SqlDataSource1">
     <AlternatingRowStyle BackColor="lightgrey" />
@@ -25,7 +24,7 @@
     </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" />
-
+<asp:Label ID="lblSQL" runat="server" Visible="true" />
 <h3>Legends and Analysis Summary</h3>
 <table cellspacing="0" cellpadding="4" border="1" width="100%">
     <tr bgcolor="cornsilk">

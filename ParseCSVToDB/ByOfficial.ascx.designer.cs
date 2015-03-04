@@ -13,13 +13,13 @@ namespace ParseCSVToDB {
     public partial class ByOfficial {
         
         /// <summary>
-        /// litTopN control.
+        /// litTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litTopN;
+        protected global::System.Web.UI.WebControls.Literal litTitle;
         
         /// <summary>
         /// GridView1 control.
@@ -38,6 +38,15 @@ namespace ParseCSVToDB {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        
+        /// <summary>
+        /// lblSQL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSQL;
         
         /// <summary>
         /// litError control.

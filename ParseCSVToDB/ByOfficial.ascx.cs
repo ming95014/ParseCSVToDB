@@ -9,8 +9,9 @@ namespace ParseCSVToDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            //if (!IsPostBack)
             {
+                /*
                 var strTop = Request.QueryString["top"] != null ? Request.QueryString["top"].ToString() : "25";
                 try
                 {
@@ -20,15 +21,17 @@ namespace ParseCSVToDB
                 {
                     ddlTopN.SelectedIndex = 0;
                 }
-
-                var strSQL = "SELECT TOP " + strTop + " Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt, Name, SUM(decAmount)/COUNT(*) As Average " +
-                                "FROM [dbo].[goa_expenses] " +
-                                "WHERE decAmount > 0" +
-                                "GROUP BY Name, Ministry " +
-                                "ORDER BY SUM(decamount) DESC ";
+                */
+                var strSQL = lblSQL.Text = "SELECT TOP " + ddlTopN.SelectedValue + " Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt, Name, SUM(decAmount)/COUNT(*) As Average " +
+                                            "FROM [dbo].[goa_expenses] " +
+                                            "WHERE decAmount > 0 AND " + (this.Page as dynamic).selectedDateRangeValue +
+                                            "GROUP BY Name, Ministry " +
+                                            "ORDER BY SUM(decamount) DESC ";
                 SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
                 SqlDataSource1.SelectCommand = strSQL;
                 GridView1.DataBind();
+
+                litTitle.Text = "Top " + ddlTopN.Text + " officials with the higest total expenses (" + (this.Page as dynamic).selectedDateRangeText + ")";
             }
         }
 
@@ -64,7 +67,7 @@ namespace ParseCSVToDB
 
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            Response.Redirect("/Analyze1?v=1&top=" + ddlTopN.SelectedValue);
+            //Response.Redirect("/Analyze1?v=1&top=" + ddlTopN.SelectedValue);
         }
     }
 }

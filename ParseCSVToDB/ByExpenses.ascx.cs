@@ -63,7 +63,7 @@ namespace ParseCSVToDB
         private void BindGrid(string strOrderBy)
         {
             strOrderBy = (strOrderBy == string.Empty) ? "decAmount DESC" : strOrderBy.Replace("Amount", "decAmount").Replace("DateIncurred", "DTDateIncurred");
-            var strSQL = litSQL.Text = "SELECT TOP " + ddlTopN.SelectedValue + " Ministry,Position,Name,Category,Type,DateIncurred,DTDateIncurred,Amount,decAmount,Description,Receipt" +
+            var strSQL = lblSQL.Text = "SELECT TOP " + ddlTopN.SelectedValue + " Ministry,Position,Name,Category,Type,DateIncurred,DTDateIncurred,Amount,decAmount,Description,Receipt" +
                                        " FROM [dbo].[goa_expenses] " +
                                        " WHERE " + (this.Page as dynamic).selectedDateRangeValue +
                                        " ORDER BY " + strOrderBy;           

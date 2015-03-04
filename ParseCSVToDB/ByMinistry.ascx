@@ -1,11 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ByMinistry.ascx.cs" Inherits="ParseCSVToDB.ByMinistry" %>
 
-    <title>Table Sorter - Employees</title>
-
-
-
 <h2>Expenses by All Ministries</h2>
-<h3>Ranking of Ministries with most expenses</h3>
+<h3><asp:Literal ID="litTitle" runat="server" /></h3>
 
 <asp:GridView ID="GridView1" runat="server"
     OnRowDataBound="OnRowDataBound_GridView1" 
@@ -31,6 +27,7 @@
     </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" />
+<asp:Label ID="lblSQL" runat="server" Visible="true" />
 
 <h3>Legends and Analysis Summary</h3>
 <table cellspacing="0" cellpadding="4" border="1" width="100%">

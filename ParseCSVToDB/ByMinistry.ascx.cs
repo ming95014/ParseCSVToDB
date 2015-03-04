@@ -9,14 +9,16 @@ namespace ParseCSVToDB
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var strSQL = "SELECT Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt " +
-                            "FROM [dbo].[goa_expenses] " +
-                            "WHERE decAmount > 0" +
-                            "GROUP BY Ministry " +
-                            "ORDER BY SUM(decamount) DESC ";
+            var strSQL = lblSQL.Text = "SELECT Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt " +
+                                        "FROM [dbo].[goa_expenses] " +
+                                        "WHERE decAmount > 0 AND " + (this.Page as dynamic).selectedDateRangeValue +
+                                        "GROUP BY Ministry " +
+                                        "ORDER BY SUM(decamount) DESC ";
             SqlDataSource1.ConnectionString = ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString;
             SqlDataSource1.SelectCommand = strSQL;
             GridView1.DataBind();
+
+            litTitle.Text = "Ranking of Ministries with highest expenses (" + (this.Page as dynamic).selectedDateRangeText + ")";
         }
 
         int _cnt1 = 0;
@@ -36,7 +38,8 @@ namespace ParseCSVToDB
                 String strTotal = row[1].ToString();
                 String strCnt = row[2].ToString();
                 e.Row.Cells[4].Text = "$" + (Convert.ToDecimal(strTotal) / Convert.ToInt32(strCnt)).ToString("N2");
-                string strSQL = "Select count(distinct(Name)) from [dbo].[goa_expenses] where Ministry=" + Common.CommonLib.Quote(row[0].ToString());
+                string strSQL = "SELECT COUNT(distinct(Name)) FROM [dbo].[goa_expenses] WHERE Ministry=" + 
+                                    Common.CommonLib.Quote(row[0].ToString()) + " AND " + (this.Page as dynamic).selectedDateRangeValue;
                 int iCnt = Common.CommonLib.GetCount(strSQL);
                 e.Row.Cells[5].Text = iCnt.ToString();
                 e.Row.Cells[6].Text = "$" + (Convert.ToDecimal(strTotal) / iCnt).ToString("N2");
