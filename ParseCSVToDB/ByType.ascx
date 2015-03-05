@@ -16,11 +16,11 @@
     <RowStyle Height="20px" Font-Size="13px" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" />
     <Columns>
         <asp:TemplateField HeaderText="#" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" />
-        <asp:BoundField DataField="Total" DataFormatString="${0:n}" HeaderText="B. Total Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="20%" SortExpression="Total" />
-        <asp:BoundField DataField="Type" HeaderText="C. Type of Expenses" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="25%" SortExpression="Name" />
-        <asp:BoundField DataField="Ministry" HeaderText="D. Ministry" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="25%" SortExpression="Ministry" />       
-        <asp:BoundField DataField="Cnt" DataFormatString="{0:n0}" HeaderText="E. # of Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="20%" SortExpression="Cnt" />
-        <asp:BoundField DataField="Average" DataFormatString="${0:n}" HeaderText="F. Average amount<br> per Expense (D/E)" HtmlEncode="false" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="20%" SortExpression="Average" />
+        <asp:BoundField DataField="Total" DataFormatString="${0:n}" HeaderText="B. Total Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" HeaderStyle-Width="15%" SortExpression="Total" />
+        <asp:BoundField DataField="Type" HeaderText="C. Type of Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" HeaderStyle-Width="15%" SortExpression="Name" />
+        <asp:BoundField DataField="Ministry" HeaderText="D. Ministry" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" HeaderStyle-Width="40%" SortExpression="Ministry" />       
+        <asp:BoundField DataField="Cnt" DataFormatString="{0:n0}" HeaderText="E. # of Expenses" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" HeaderStyle-Width="15%" SortExpression="Cnt" />
+        <asp:BoundField DataField="Average" DataFormatString="${0:n}" HeaderText="F. Average amount<br> per Expense (D/E)" HtmlEncode="false" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="Right" HeaderStyle-Width="15%" SortExpression="Average" />
     </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" />
