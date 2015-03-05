@@ -21,7 +21,7 @@
         <asp:TemplateField HeaderText="#" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" HeaderStyle-Width="1%"/>
         <asp:BoundField DataField="Name" HeaderText="A. Official (Order by highest total expenses)" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="10%" />
         <asp:BoundField DataField="Position" HeaderText="B. Position" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="20%" SortExpression="Position" />
-        <asp:BoundField DataField="Ministry" HeaderText="C. Ministry" ItemStyle-HorizontalAlign="Left" HeaderStyle-Width="20%" SortExpression="Ministry"/>
+        <asp:BoundField DataField="Ministry" HeaderText="C. Ministry" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="20%" SortExpression="Ministry"/>
         <asp:BoundField DataField="Category" HeaderText="D. Category " ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="5%" SortExpression="Category"/>
         <asp:BoundField DataField="Type"     HeaderText="E. Type" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="5%" SortExpression="Type"/>
         <asp:BoundField DataField="DateIncurred" HeaderText="F. Date Incurred" ItemStyle-HorizontalAlign="Right" HeaderStyle-Width="5%" SortExpression="DTDateIncurred" />
