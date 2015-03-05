@@ -6,7 +6,9 @@
 <%@ Register TagPrefix="uc4" TagName="ByTypes" Src="~/ByType.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <style type="text/css">
+        .HeaderStyle th{text-align:right}
+    </style>
     <script type="text/javascript" src="Scripts/jquery-latest.js"></script>
     <script type="text/javascript" src="Scripts/TableSorter.js"></script>
 
@@ -57,5 +59,6 @@ See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
             <asp:ListItem Text="By Ministries" Value="0" />
             <asp:ListItem Text="By Officials" Value="1" />
             <asp:ListItem Text="By Expenses" Value="2" />
+            <asp:ListItem Text="By Types" Value="3" />
         </asp:DropDownList>
 </asp:Content>

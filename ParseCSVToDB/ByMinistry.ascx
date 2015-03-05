@@ -8,7 +8,7 @@
     OnDataBound="GridView1_DataBound"   
     AutoGenerateColumns="false"
     ShowFooter="true" GridLines="None" AllowSorting="false"
-    ShowHeaderWhenEmpty="true"
+    ShowHeaderWhenEmpty="true" CssClass="HeaderStyle"
     DataSourceID="SqlDataSource1">
     <AlternatingRowStyle BackColor="lightgrey" />
     <PagerStyle BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" />
