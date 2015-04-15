@@ -224,6 +224,8 @@
     <Content Include="themes\green\bg.png" />
     <Content Include="themes\green\desc.png" />
     <Content Include="themes\green\style.css" />
+    <Content Include="uCreateChart.ascx" />
+    <Content Include="uSimpleTableChart.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -377,6 +379,20 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="uCreateChart.ascx.cs">
+      <DependentUpon>uCreateChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uCreateChart.ascx.designer.cs">
+      <DependentUpon>uCreateChart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uSimpleTableChart.ascx.cs">
+      <DependentUpon>uSimpleTableChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uSimpleTableChart.ascx.designer.cs">
+      <DependentUpon>uSimpleTableChart.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
