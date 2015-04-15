@@ -7,10 +7,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style type="text/css">
-        .HeaderStyle th{text-align:right}
+        .HeaderStyle th {text-align:right}
     </style>
-    <script type="text/javascript" src="Scripts/jquery-latest.js"></script>
-    <script type="text/javascript" src="Scripts/TableSorter.js"></script>
 
     <div id="divToExport" runat="server">
         <h2 style="text-align: center">Reports and Analysis</h2>
@@ -33,11 +31,11 @@
     <hr />
     <!-- Date Range -->
     <h3>Change date ranges in the report: </h3>
-See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
+    See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
     <asp:ListItem Text="All Avaialbe Data" Value="1=1" />
-        <asp:ListItem Text="1/10/2015 to 1/29/2015" Value="DTDateIncurred Between '1/1/2015' AND '12/31/2015'"/>
-        <asp:ListItem Text="1/10/2014 to 12/31/2014" Value="DTDateIncurred Between '1/1/2014' AND '12/31/2014'"/>
-        <asp:ListItem Text="1/1/2013 to 12/31/2013" Value="DTDateIncurred Between '1/1/2013' AND '12/31/2013'"/>
+        <asp:ListItem Text="1/01/2015 to  1/29/2015" Value="DTDateIncurred Between '1/01/2015' AND '12/31/2015'"/>
+        <asp:ListItem Text="1/01/2014 to 12/31/2014" Value="DTDateIncurred Between '1/01/2014' AND '12/31/2014'"/>
+        <asp:ListItem Text="1/01/2013 to 12/31/2013" Value="DTDateIncurred Between '1/01/2013' AND '12/31/2013'"/>
         <asp:ListItem Text="1/10/2012 to 12/31/2012" Value="DTDateIncurred Between '1/10/2012' AND '12/31/2012'"/>  
     </asp:DropDownList>
     <hr />
@@ -54,11 +52,11 @@ See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
     <!-- Ohter Reports -->
     <h3>Explore Other Reports : </h3>
     <a runat="server" href="~/About">Back to Objectives and Context Data</a><br />
-    Or Jump to other reports below :
-        <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
-            <asp:ListItem Text="By Ministries" Value="0" />
-            <asp:ListItem Text="By Officials" Value="1" />
-            <asp:ListItem Text="By Expenses" Value="2" />
-            <asp:ListItem Text="By Types" Value="3" />
-        </asp:DropDownList>
+    Or Jump to other reports :
+    <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
+        <asp:ListItem Text="By Ministries" Value="0" />
+        <asp:ListItem Text="By Officials" Value="1" />
+        <asp:ListItem Text="By Expenses" Value="2" />
+        <asp:ListItem Text="By Types" Value="3" />
+    </asp:DropDownList>
 </asp:Content>
