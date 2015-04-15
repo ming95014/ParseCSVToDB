@@ -4,6 +4,7 @@
 <%@ Register TagPrefix="uc2" TagName="ByOfficial" Src="~/ByOfficial.ascx" %>
 <%@ Register TagPrefix="uc3" TagName="ByExpenses" Src="~/ByExpenses.ascx" %>
 <%@ Register TagPrefix="uc4" TagName="ByTypes" Src="~/ByType.ascx" %>
+<%@ Register TagPrefix="uc5" TagName="Chart" Src="~/uSimpleTableChart.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style type="text/css">
@@ -25,6 +26,9 @@
             </asp:View>
             <asp:View ID="view3" runat="server">
                 <uc4:ByTypes runat="server" />
+            </asp:View>
+            <asp:View ID="view4" runat="server">
+                <uc5:Chart runat="server" />
             </asp:View>
         </asp:MultiView>
     </div>
@@ -58,5 +62,6 @@
         <asp:ListItem Text="By Officials" Value="1" />
         <asp:ListItem Text="By Expenses" Value="2" />
         <asp:ListItem Text="By Types" Value="3" />
+        <asp:ListItem Text="Chart By Ministry" Value="4" />
     </asp:DropDownList>
 </asp:Content>

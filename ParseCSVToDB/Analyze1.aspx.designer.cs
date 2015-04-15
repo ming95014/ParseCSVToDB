@@ -67,6 +67,15 @@ namespace ParseCSVToDB {
         protected global::System.Web.UI.WebControls.View view3;
         
         /// <summary>
+        /// view4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View view4;
+        
+        /// <summary>
         /// ddlDateRange control.
         /// </summary>
         /// <remarks>

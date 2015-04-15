@@ -13,22 +13,13 @@ namespace ParseCSVToDB {
     public partial class uSimpleTableChart {
         
         /// <summary>
-        /// lbQuestion control.
+        /// litTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbQuestion;
-        
-        /// <summary>
-        /// litTab control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litTab;
+        protected global::System.Web.UI.WebControls.Literal litTitle;
         
         /// <summary>
         /// pnlRight control.

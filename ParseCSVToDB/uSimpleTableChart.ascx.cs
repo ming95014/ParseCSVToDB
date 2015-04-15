@@ -15,18 +15,20 @@ namespace ParseCSVToDB
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            litTitle.Text = "Ranking of Ministries with highest expenses (" + (this.Page as dynamic).selectedDateRangeText + ")";
+
             string strSQL = "SELECT Ministry, SUM(decAmount) AS Total" +
                                         " FROM [dbo].[goa_expenses]" +
                                         " WHERE decAmount > 0 AND " + (this.Page as dynamic).selectedDateRangeValue +
                                         " GROUP BY Ministry " +
                                         " ORDER BY SUM(decamount) DESC ";
 
-            litTab.Text = GetTableHeader();
+            //litTab.Text = GetTableHeader();
             arrResponses = new string[23];
             arrRespValues = new int[23];
             using (SqlConnection connection = new SqlConnection(@"user id=sa;password=ming12;server=MINGHPDESKTOP\SQLEXPRESS;Trusted_Connection=yes;database=Alberta3;connection timeout=30"))
             {
-                litTab.Text += ExecuteSQL(connection, strSQL);         
+                ExecuteSQL(connection, strSQL);         
             }
             // Add the chart
             uCreateChart uCreateChart = LoadControl("~/uCreateChart.ascx") as uCreateChart;

@@ -7,6 +7,9 @@ namespace ParseCSVToDB
 {
     public partial class ByMinistry : System.Web.UI.UserControl
     {
+        private Boolean boolSmallTable = false;
+        public Boolean SmallTable { set { boolSmallTable = value; } }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var strSQL = lblSQL.Text = "SELECT Ministry, SUM(decAmount) AS Total, COUNT(*) As Cnt " +
@@ -30,6 +33,13 @@ namespace ParseCSVToDB
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 _cnt1 = 0;
+                if (boolSmallTable)
+                {
+                    pnlSummary.Visible = false;
+                    for (var i = 3; i < GridView1.Columns.Count; i++ )
+                        GridView1.Columns[i].Visible = false;
+                }
+                    
             }
             else if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -39,14 +49,17 @@ namespace ParseCSVToDB
                 String strCnt = row[2].ToString();
                 e.Row.Cells[1].Text = "<a title='Click to pop-open a new browser to view the details' target='_blank' href='/Analyze1?v=2&ministry=" +
                                                                             Server.UrlEncode(row[0].ToString()) + "'>" + row[0].ToString() + "</a>";
-                e.Row.Cells[4].Text = "$" + (Convert.ToDecimal(strTotal) / Convert.ToInt32(strCnt)).ToString("N2");
-                string strSQL = "SELECT COUNT(distinct(Name)) FROM [dbo].[goa_expenses] WHERE Ministry=" + 
-                                    Common.CommonLib.Quote(row[0].ToString()) + " AND " + (this.Page as dynamic).selectedDateRangeValue;
-                int iCnt = Common.CommonLib.GetCount(strSQL);
-                e.Row.Cells[5].Text = iCnt.ToString();
-                e.Row.Cells[6].Text = "$" + (Convert.ToDecimal(strTotal) / iCnt).ToString("N2");
-                e.Row.Cells[7].Text = (Convert.ToDecimal(strCnt) / iCnt).ToString("N2");
-
+                int iCnt = 0;
+                if (!boolSmallTable)
+                {
+                    e.Row.Cells[4].Text = "$" + (Convert.ToDecimal(strTotal) / Convert.ToInt32(strCnt)).ToString("N2");
+                    string strSQL = "SELECT COUNT(distinct(Name)) FROM [dbo].[goa_expenses] WHERE Ministry=" + 
+                                        Common.CommonLib.Quote(row[0].ToString()) + " AND " + (this.Page as dynamic).selectedDateRangeValue;
+                    iCnt = Common.CommonLib.GetCount(strSQL);
+                    e.Row.Cells[5].Text = iCnt.ToString();
+                    e.Row.Cells[6].Text = "$" + (Convert.ToDecimal(strTotal) / iCnt).ToString("N2");
+                    e.Row.Cells[7].Text = (Convert.ToDecimal(strCnt) / iCnt).ToString("N2");
+                }
                 // for footer
                 dTotal1 += Convert.ToDecimal(strTotal);
                 iNumExpenses1 += Convert.ToInt32(strCnt);
@@ -54,13 +67,16 @@ namespace ParseCSVToDB
             }
             else if (e.Row.RowType == DataControlRowType.Footer)
             {
-                e.Row.Cells[1].Text = "Summary Information";
+                e.Row.Cells[1].Text = "Total ";
                 e.Row.Cells[2].Text = "$" + dTotal1.ToString("N2");
-                e.Row.Cells[3].Text = iNumExpenses1.ToString("N2");
-                e.Row.Cells[4].Text = "$" + (dTotal1 / iNumExpenses1).ToString("N2");
-                e.Row.Cells[5].Text = iOfficials1.ToString("N0");
-                e.Row.Cells[6].Text = "$" + (dTotal1 / iOfficials1).ToString("N2");
-                e.Row.Cells[7].Text = (iNumExpenses1 / iOfficials1).ToString("N2");
+                if (!boolSmallTable)
+                {
+                    e.Row.Cells[3].Text = iNumExpenses1.ToString("N2");
+                    e.Row.Cells[4].Text = "$" + (dTotal1 / iNumExpenses1).ToString("N2");
+                    e.Row.Cells[5].Text = iOfficials1.ToString("N0");
+                    e.Row.Cells[6].Text = "$" + (dTotal1 / iOfficials1).ToString("N2");
+                    e.Row.Cells[7].Text = (iNumExpenses1 / iOfficials1).ToString("N2");
+                }
             }
         }
 

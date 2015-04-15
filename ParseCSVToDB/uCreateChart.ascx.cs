@@ -17,16 +17,29 @@ namespace ParseCSVToDB
         private int[] arrRespValues; // = { 21786, 14690, 2891, 1146 };
         public int[] RespValues { set { arrRespValues = value; } }
 
-        private Color[] colors = { Color.Green, 
-                                   Color.Yellow, 
-                                   Color.Orange, 
-                                   Color.Blue, 
-                                   Color.Red, 
-                                   Color.Violet, 
-                                   Color.Gold, 
-                                   Color.Pink, 
-                                   Color.PowderBlue, 
-                                   Color.LightGreen, 
+        private Color[] colors = { Color.Green,
+                                   Color.Yellow,
+                                   Color.Orange,
+                                   Color.Blue,
+                                   Color.Red,
+                                   Color.Violet,
+                                   Color.Gold,
+                                   Color.Pink,
+                                   Color.PowderBlue,
+                                   Color.LightGreen,
+                                   Color.Gray,
+                                   Color.LightGoldenrodYellow,
+                                   Color.OrangeRed,
+                                   Color.CadetBlue,
+                                   Color.MediumVioletRed,
+                                   Color.PaleVioletRed,
+                                   Color.PaleGoldenrod,
+                                   Color.HotPink,
+                                   Color.Honeydew,
+                                   Color.Indigo,
+                                   Color.DarkOliveGreen,
+                                   Color.DeepSkyBlue,
+                                   Color.IndianRed,
                                    Color.MediumVioletRed };
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,11 +59,11 @@ namespace ParseCSVToDB
                 Chart1.Series[0].ChartType == SeriesChartType.Pyramid)
                 Chart1.Legends[0].Enabled = true;  // only show Legend for these 4 types of chart; otherwise, they just showed 'default' for no good purpose
 
-            Chart1.Palette = ChartColorPalette.Pastel;
+            //Chart1.Palette = ChartColorPalette.Pastel;
 
             //Chart1.Height = arrRespValues.Count() < 5 ? 300 : 500;
-            //for (int i = 0; i < arrRespValues.Count(); i++)
-            //    Chart1.Series["Default"].Points[i].Color = colors[i];
+            for (int i = 0; i < arrRespValues.Count(); i++)
+                Chart1.Series["Default"].Points[i].Color = colors[i];
             /*
             string tmpChartName = "test2.jpg";
             string imgPath = HttpContext.Current.Request.PhysicalApplicationPath + tmpChartName;

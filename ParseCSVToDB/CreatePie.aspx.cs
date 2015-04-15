@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Drawing;
 
-namespace AlbertaSurvey
+namespace ParseCSVToDB
 {
     public partial class CreatePie : System.Web.UI.Page
     {
