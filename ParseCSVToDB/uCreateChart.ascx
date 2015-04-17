@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="uCreateChart.ascx.cs" Inherits="ParseCSVToDB.uCreateChart" %>
-<br /><br />
-<asp:Chart ID="Chart1" runat="server" Height="900px" Width="500px">
+<br /><br /><br /><br />
+<asp:Chart ID="Chart1" runat="server" Height="800px" Width="500px">
     <Titles>
         <asp:Title ShadowOffset="3" Name="Items" />
     </Titles>

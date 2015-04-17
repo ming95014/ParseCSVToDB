@@ -15,7 +15,7 @@ namespace ParseCSVToDB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            litTitle.Text = "Ranking of Ministries with highest expenses (" + (this.Page as dynamic).selectedDateRangeText + ")";
+            //litTitle.Text = "Ranking of Ministries with highest expenses (" + (this.Page as dynamic).selectedDateRangeText + ")";
 
             string strSQL = "SELECT Ministry, SUM(decAmount) AS Total" +
                                         " FROM [dbo].[goa_expenses]" +
