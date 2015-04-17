@@ -159,6 +159,7 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="AdhocOfficial.ascx" />
     <Content Include="Analyze1.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -278,6 +279,13 @@
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdhocOfficial.ascx.cs">
+      <DependentUpon>AdhocOfficial.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdhocOfficial.ascx.designer.cs">
+      <DependentUpon>AdhocOfficial.ascx</DependentUpon>
     </Compile>
     <Compile Include="Analyze1.aspx.cs">
       <DependentUpon>Analyze1.aspx</DependentUpon>

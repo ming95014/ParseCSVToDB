@@ -8,11 +8,14 @@
         <p>
         We ultimately wanted to know if the money that was expensed by our public officials were reasonable, and not being abuse.
         </p>
+        <p>But, with the thousands of expenses, where do we being to look for expenses to inspect?</p>
         <ul>
-            <li><a href="Analyze1.aspx?v=0">Which ministries are spending the most, and are they reasonable?</a></li>
-            <li><a href="Analyze1.aspx?v=1">Which officials are spending the most, and are they reasonable?</a></li>            
-            <li><a href="Analyze1.aspx?v=2">What are some of the high expenses, and are they reasonable?</a></li>
-            <li><a href="Analyze1.aspx?v=3">What types of expenses constitute the bulk of the expenses, and are they reasonable?</a></li>
+            <li><a href="Analyze1.aspx?v=0">Start with ministries with the highest expense, then drill down to find officials, and finally expenses.</a></li>
+            <li><a href="Analyze1.aspx?v=1">Start with officials  with the highest expense, and find other expenses for his/her other expenses.</a></li>            
+            <li><a href="Analyze1.aspx?v=2">Start with the highest expenses, and examine the receipts.</a></li>
+            <li><a href="Analyze1.aspx?v=3">Start with types of expenses and drill down to find high expenses of particular type.</a></li>
+            <li><a href="Analyze1.aspx?v=4">Start with an official with name searches.</a></li>
+            <li><a href="Analyze1.aspx?v=5">Show the expenses by ministry in a graphical chart.</a></li>
             <!--<li>What are some of the high expenses per Type and are they reasonable?</li>-->
         </ul>
         <p>

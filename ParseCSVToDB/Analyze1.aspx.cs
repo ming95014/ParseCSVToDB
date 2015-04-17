@@ -34,6 +34,8 @@ namespace ParseCSVToDB
                 }
             }
             txReport.Text = ddl1.SelectedItem.Text + DateTime.Now.ToString("s").Replace(" ", "-");
+
+            divOptions.Visible = (mv.ActiveViewIndex != 5);
         }
 
         protected void OnSelectedIndexChanged(object sender, EventArgs e)

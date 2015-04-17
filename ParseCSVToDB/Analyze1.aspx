@@ -4,7 +4,8 @@
 <%@ Register TagPrefix="uc2" TagName="ByOfficial" Src="~/ByOfficial.ascx" %>
 <%@ Register TagPrefix="uc3" TagName="ByExpenses" Src="~/ByExpenses.ascx" %>
 <%@ Register TagPrefix="uc4" TagName="ByTypes" Src="~/ByType.ascx" %>
-<%@ Register TagPrefix="uc5" TagName="Chart" Src="~/uSimpleTableChart.ascx" %>
+<%@ Register TagPrefix="uc5" TagName="Adhoc" Src="~/AdhocOfficial.ascx" %>
+<%@ Register TagPrefix="uc6" TagName="Chart" Src="~/uSimpleTableChart.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style type="text/css">
@@ -28,40 +29,46 @@
                 <uc4:ByTypes runat="server" />
             </asp:View>
             <asp:View ID="view4" runat="server">
-                <uc5:Chart runat="server" />
+                <uc5:Adhoc runat="server" />
+            </asp:View>
+            <asp:View ID="view5" runat="server">
+                <uc6:Chart runat="server" />
             </asp:View>
         </asp:MultiView>
     </div>
     <hr />
-    <!-- Date Range -->
-    <h3>Change date ranges in the report: </h3>
-    See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
-    <asp:ListItem Text="All Avaialbe Data" Value="1=1" />
-        <asp:ListItem Text="1/01/2015 to  1/29/2015" Value="DTDateIncurred Between '1/01/2015' AND '12/31/2015'"/>
-        <asp:ListItem Text="1/01/2014 to 12/31/2014" Value="DTDateIncurred Between '1/01/2014' AND '12/31/2014'"/>
-        <asp:ListItem Text="1/01/2013 to 12/31/2013" Value="DTDateIncurred Between '1/01/2013' AND '12/31/2013'"/>
-        <asp:ListItem Text="1/10/2012 to 12/31/2012" Value="DTDateIncurred Between '1/10/2012' AND '12/31/2012'"/>  
-    </asp:DropDownList>
-    <hr />
-    <!-- Export Reports -->
-    <h3>Export Report</h3>
-    <asp:DropDownList ID="ddlExpFileType" runat="server">
-        <asp:ListItem Text="ms-excel" Value=".xls" />
-        <asp:ListItem Text="ms-msword" Value=".doc" />     
-    </asp:DropDownList>
-    <asp:TextBox ID="txReport" runat="server" Text="ReportName" Width="300px" />
-    <asp:RequiredFieldValidator ControlToValidate="txReport" ErrorMessage="Required" runat="server" />
-    <asp:Button ID="btnReport" runat="server" Text="Export" OnClick="btnExport_Click" />
-    <hr />
-    <!-- Ohter Reports -->
-    <h3>Explore Other Reports : </h3>
-    <a runat="server" href="~/About">Back to Objectives and Context Data</a><br />
-    Or Jump to other reports :
-    <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
-        <asp:ListItem Text="By Ministries" Value="0" />
-        <asp:ListItem Text="By Officials" Value="1" />
-        <asp:ListItem Text="By Expenses" Value="2" />
-        <asp:ListItem Text="By Types" Value="3" />
-        <asp:ListItem Text="Chart By Ministry" Value="4" />
-    </asp:DropDownList>
+    <div id="divOptions" runat="server">
+        <!-- Date Range -->
+        <h3>Change date ranges in the report: </h3>
+        See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
+        <asp:ListItem Text="All Avaialbe Data" Value="1=1" />
+            <asp:ListItem Text="1/01/2015 to  1/29/2015" Value="DTDateIncurred Between '1/01/2015' AND '12/31/2015'"/>
+            <asp:ListItem Text="1/01/2014 to 12/31/2014" Value="DTDateIncurred Between '1/01/2014' AND '12/31/2014'"/>
+            <asp:ListItem Text="1/01/2013 to 12/31/2013" Value="DTDateIncurred Between '1/01/2013' AND '12/31/2013'"/>
+            <asp:ListItem Text="1/10/2012 to 12/31/2012" Value="DTDateIncurred Between '1/10/2012' AND '12/31/2012'"/>  
+        </asp:DropDownList>
+        <hr />
+        <!-- Export Reports -->
+        <h3>Export Report</h3>
+        <asp:DropDownList ID="ddlExpFileType" runat="server">
+            <asp:ListItem Text="ms-excel" Value=".xls" />
+            <asp:ListItem Text="ms-msword" Value=".doc" />     
+        </asp:DropDownList>
+        <asp:TextBox ID="txReport" runat="server" Text="ReportName" Width="300px" />
+        <asp:RequiredFieldValidator ControlToValidate="txReport" ErrorMessage="Required" runat="server" />
+        <asp:Button ID="btnReport" runat="server" Text="Export" OnClick="btnExport_Click" />
+        <hr />
+        <!-- Ohter Reports -->
+        <h3>Explore Other Reports : </h3>
+        <a runat="server" href="~/About">Back to Objectives and Context Data</a><br />
+        Or Jump to other reports :
+        <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
+            <asp:ListItem Text="Start from Ministries" Value="0" />
+            <asp:ListItem Text="Start from Officials" Value="1" />
+            <asp:ListItem Text="Start from high Expenses" Value="2" />
+            <asp:ListItem Text="Start from Expense types in each ministry" Value="3" />
+            <asp:ListItem Text="Select an official" Value="4" />
+            <asp:ListItem Text="Chart By Ministry" Value="5" />
+        </asp:DropDownList>
+    </div>
 </asp:Content>
