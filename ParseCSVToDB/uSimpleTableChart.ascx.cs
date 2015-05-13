@@ -26,7 +26,7 @@ namespace ParseCSVToDB
             //litTab.Text = GetTableHeader();
             arrResponses = new string[23];
             arrRespValues = new int[23];
-            using (SqlConnection connection = new SqlConnection(@"user id=sa;password=ming12;server=MINGHPDESKTOP\SQLEXPRESS;Trusted_Connection=yes;database=Alberta3;connection timeout=30"))
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString))
             {
                 ExecuteSQL(connection, strSQL);         
             }

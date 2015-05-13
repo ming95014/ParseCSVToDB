@@ -2,6 +2,8 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div>
+        <br />
+        <img src="images/ChallengePost.png" alt="ChallengePost" /><img src="images/AppsForAlberta.png" alt="Apps for Alberta" width="300" />
         <h2 style="text-align:center">Objectives and Context Data</h2>
 
         <h4>Public Disclosure of Travel and Expenses</h4>
@@ -35,4 +37,9 @@
 
         <a target="_blank" href="Data.aspx">See the summary of data set</a>
     </div>
+    <script>
+        $('a').filter(function () {
+            return this.innerHTML == "Objectives and Context Data";
+        }).css({ color: "#FFFF00" });
+    </script>
 </asp:Content>
