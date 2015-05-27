@@ -10,7 +10,7 @@
 namespace ParseCSVToDB {
     
     
-    public partial class uSimpleTableChart {
+    public partial class uMinistryChartTotal {
         
         /// <summary>
         /// pnlRight control.

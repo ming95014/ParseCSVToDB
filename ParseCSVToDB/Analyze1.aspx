@@ -5,7 +5,7 @@
 <%@ Register TagPrefix="uc3" TagName="ByExpenses" Src="~/ByExpenses.ascx" %>
 <%@ Register TagPrefix="uc4" TagName="ByTypes" Src="~/ByType.ascx" %>
 <%@ Register TagPrefix="uc5" TagName="Adhoc" Src="~/AdhocOfficial.ascx" %>
-<%@ Register TagPrefix="uc6" TagName="Chart" Src="~/uSimpleTableChart.ascx" %>
+<%@ Register TagPrefix="uc6" TagName="ChartMinistryTotal" Src="~/uMinistryChartTotal.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style type="text/css">
@@ -32,7 +32,7 @@
                 <uc5:Adhoc runat="server" />
             </asp:View>
             <asp:View ID="view5" runat="server">
-                <uc6:Chart runat="server" />
+                <uc6:ChartMinistryTotal runat="server" />
             </asp:View>
         </asp:MultiView>
     </div>

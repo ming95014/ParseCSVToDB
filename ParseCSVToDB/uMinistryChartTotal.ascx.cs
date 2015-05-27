@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace ParseCSVToDB
 {
-    public partial class uSimpleTableChart : System.Web.UI.UserControl
+    public partial class uMinistryChartTotal : System.Web.UI.UserControl
     {
         private string[] arrResponses; // = { "A great deal", "Somewhat", "Not very much", "Not at all" };
         private int[] arrRespValues; // = { 21786, 14690, 2891, 1146 };

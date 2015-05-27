@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="uSimpleTableChart.ascx.cs" Inherits="ParseCSVToDB.uSimpleTableChart" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="uMinistryChartTotal.ascx.cs" Inherits="ParseCSVToDB.uMinistryChartTotal" %>
 <%@ Register TagPrefix="uc1" TagName="ByMinistry" Src="~/ByMinistry.ascx" %>
 
 <table>
