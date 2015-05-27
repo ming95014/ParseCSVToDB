@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="uCreateChart.ascx.cs" Inherits="ParseCSVToDB.uCreateChart" %>
 <br /><br /><br /><br />
-<asp:Chart ID="Chart1" runat="server" Height="800px" Width="500px">
+<asp:Chart ID="Chart1" runat="server" Height="800" Width="500" Visible="false">
     <Titles>
         <asp:Title ShadowOffset="3" Name="Items" />
     </Titles>
@@ -14,7 +14,8 @@
         <asp:ChartArea Name="ChartArea1" BorderWidth="0" />
     </ChartAreas>
 </asp:Chart>
-<asp:PlaceHolder runat="server" Visible="false">
+<asp:Image ID="aspImage" runat="server" Height="800" />
+<asp:PlaceHolder ID="phChartType" runat="server" Visible="false">
 <br />
 Chart Type : <asp:DropDownList ID="ddlChartType" runat="server" AutoPostBack="true">
                         <asp:ListItem Value="Area" Text="Area chart type." />

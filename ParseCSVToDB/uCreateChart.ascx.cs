@@ -17,6 +17,12 @@ namespace ParseCSVToDB
         private int[] arrRespValues; // = { 21786, 14690, 2891, 1146 };
         public int[] RespValues { set { arrRespValues = value; } }
 
+        private string strChartName = "TotalMinistry.png";
+        public string ChartName
+        {
+            set { strChartName = value; }
+        }
+
         private Color[] colors = { Color.Green,
                                    Color.Yellow,
                                    Color.Orange,
@@ -43,10 +49,10 @@ namespace ParseCSVToDB
                                    Color.MediumVioletRed };
         protected void Page_Load(object sender, EventArgs e)
         {
-            drawPie();
+            drawChart();
         }
 
-        protected void drawPie()
+        protected void drawChart()
         {
             Array.Reverse(arrResponses);
             Array.Reverse(arrRespValues);
@@ -64,12 +70,11 @@ namespace ParseCSVToDB
             //Chart1.Height = arrRespValues.Count() < 5 ? 300 : 500;
             for (int i = 0; i < arrRespValues.Count(); i++)
                 Chart1.Series["Default"].Points[i].Color = colors[i];
-            /*
-            string tmpChartName = "test2.jpg";
-            string imgPath = HttpContext.Current.Request.PhysicalApplicationPath + tmpChartName;
+
+            // In order to be able to display in Exported files (MSWord/Excel), need it as image file
+            string imgPath = HttpContext.Current.Request.PhysicalApplicationPath + "\\TempChartImages\\" + strChartName;
             Chart1.SaveImage(imgPath);
-            string imgPath2 = Request.Url.GetLeftPart(UriPartial.Authority) + VirtualPathUtility.ToAbsolute("~/" + tmpChartName);
-            */
+            aspImage.ImageUrl = Request.Url.GetLeftPart(UriPartial.Authority) + System.Web.VirtualPathUtility.ToAbsolute("~/TempChartImages/" + strChartName);
         }
 
         private SeriesChartType GetChartType(string strSelectedValue)
