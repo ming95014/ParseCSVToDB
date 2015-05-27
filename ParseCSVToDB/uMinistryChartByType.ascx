@@ -1,8 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="uMinistryChartByType.ascx.cs" Inherits="ParseCSVToDB.uMinistryChartByType" %>
 
 <div style="text-align:center">
-    <h3>Expenses by Type of a Ministry</h3>
-    Select a ministry : <asp:DropDownList ID="ddlMinistry" runat="server" AutoPostBack="true" />
+    <h3><asp:Literal ID="litTitle" runat="server" /></h3>   
     <br />
     <table border="1">
         <tr>
@@ -14,5 +13,9 @@
             </td>
         </tr>
     </table>
-    <h4><asp:Literal ID="litTitle" runat="server" /></h4>
+    <br />
+    <div style="text-align:left">
+        <h3>Select a ministry : </h3>
+        <asp:DropDownList ID="ddlMinistry" runat="server" AutoPostBack="true" />
+    </div>
 </div>

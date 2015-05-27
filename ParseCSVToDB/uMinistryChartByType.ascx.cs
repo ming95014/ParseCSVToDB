@@ -70,7 +70,7 @@ namespace ParseCSVToDB
             uCreateChart uCreateChart = LoadControl("~/uCreateChart.ascx") as uCreateChart;
             uCreateChart.Responses = arrResponses;
             uCreateChart.RespValues = arrRespValues;
-            uCreateChart.ChartName = ddlMinistry.SelectedValue + "_ByExpense.png";
+            uCreateChart.ChartName = litTitle.Text.Replace("/","_").Replace(" ","") + ".png";
             pnlRight.Controls.Add(uCreateChart);
         }
 
@@ -101,7 +101,9 @@ namespace ParseCSVToDB
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         // Check is the reader has any rows at all before starting to read.
-                        if (reader.HasRows)
+                        if (!reader.HasRows)
+                            strRet = "<tr><td>No data found.</td></tr>";
+                        else
                         {
                             while (reader.Read())
                             {

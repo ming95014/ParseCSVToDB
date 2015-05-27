@@ -13,13 +13,13 @@ namespace ParseCSVToDB {
     public partial class uMinistryChartByType {
         
         /// <summary>
-        /// ddlMinistry control.
+        /// litTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMinistry;
+        protected global::System.Web.UI.WebControls.Literal litTitle;
         
         /// <summary>
         /// litTable control.
@@ -40,12 +40,12 @@ namespace ParseCSVToDB {
         protected global::System.Web.UI.WebControls.Panel pnlRight;
         
         /// <summary>
-        /// litTitle control.
+        /// ddlMinistry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litTitle;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMinistry;
     }
 }
