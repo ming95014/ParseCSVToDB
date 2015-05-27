@@ -5,7 +5,8 @@
 <%@ Register TagPrefix="uc3" TagName="ByExpenses" Src="~/ByExpenses.ascx" %>
 <%@ Register TagPrefix="uc4" TagName="ByTypes" Src="~/ByType.ascx" %>
 <%@ Register TagPrefix="uc5" TagName="Adhoc" Src="~/AdhocOfficial.ascx" %>
-<%@ Register TagPrefix="uc6" TagName="ChartMinistryTotal" Src="~/uMinistryChartTotal.ascx" %>
+<%@ Register TagPrefix="uc6" TagName="MinistryChartTotal" Src="~/uMinistryChartTotal.ascx" %>
+<%@ Register TagPrefix="uc7" TagName="MinistryChartByType" Src="~/uMinistryChartByType.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style type="text/css">
@@ -32,7 +33,10 @@
                 <uc5:Adhoc runat="server" />
             </asp:View>
             <asp:View ID="view5" runat="server">
-                <uc6:ChartMinistryTotal runat="server" />
+                <uc6:MinistryChartTotal runat="server" />
+            </asp:View>
+            <asp:View ID="view6" runat="server">
+                <uc7:MinistryChartByType runat="server" />
             </asp:View>
         </asp:MultiView>
     </div>
@@ -64,11 +68,12 @@
         Or Jump to other reports :
         <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
             <asp:ListItem Text="Start from Ministries" Value="0" />
-            <asp:ListItem Text="Start from Officials" Value="1" />
-            <asp:ListItem Text="Start from high Expenses" Value="2" />
+            <asp:ListItem Text="Start from Officials with high expenses" Value="1" />
+            <asp:ListItem Text="Start from all high Expenses" Value="2" />
             <asp:ListItem Text="Start from Expense types in each ministry" Value="3" />
             <asp:ListItem Text="Select an official" Value="4" />
-            <asp:ListItem Text="Chart By Ministry" Value="5" />
+            <asp:ListItem Text="Chart of all Ministries by total expenses" Value="5" />
+            <asp:ListItem Text="Chart by Expense Type of a Ministry" Value="6" />
         </asp:DropDownList>
     </div>
     <script>

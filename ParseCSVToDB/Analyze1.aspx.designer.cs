@@ -85,6 +85,15 @@ namespace ParseCSVToDB {
         protected global::System.Web.UI.WebControls.View view5;
         
         /// <summary>
+        /// view6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View view6;
+        
+        /// <summary>
         /// divOptions control.
         /// </summary>
         /// <remarks>

@@ -14,7 +14,7 @@
         <asp:ChartArea Name="ChartArea1" BorderWidth="0" />
     </ChartAreas>
 </asp:Chart>
-<asp:Image ID="aspImage" runat="server" Height="800" />
+<asp:Image ID="aspImage" runat="server"/>
 <asp:PlaceHolder ID="phChartType" runat="server" Visible="false">
 <br />
 Chart Type : <asp:DropDownList ID="ddlChartType" runat="server" AutoPostBack="true">

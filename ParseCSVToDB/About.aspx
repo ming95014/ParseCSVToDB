@@ -18,6 +18,7 @@
             <li><a href="Analyze1.aspx?v=3">Start with types of expenses and drill down to find high expenses of particular type.</a></li>
             <li><a href="Analyze1.aspx?v=4">Start with an official with name searches.</a></li>
             <li><a href="Analyze1.aspx?v=5">Show the expenses by ministry in a graphical chart.</a></li>
+            <li><a href="Analyze1.aspx?v=6">Show the expenses by Type of selected ministry in a graphical chart.</a></li>
             <!--<li>What are some of the high expenses per Type and are they reasonable?</li>-->
         </ul>
         <p>

@@ -228,6 +228,7 @@
     <Content Include="themes\green\desc.png" />
     <Content Include="themes\green\style.css" />
     <Content Include="uCreateChart.ascx" />
+    <Content Include="uMinistryChartByType.ascx" />
     <Content Include="uMinistryChartTotal.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -395,6 +396,13 @@
     </Compile>
     <Compile Include="uCreateChart.ascx.designer.cs">
       <DependentUpon>uCreateChart.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="uMinistryChartByType.ascx.cs">
+      <DependentUpon>uMinistryChartByType.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uMinistryChartByType.ascx.designer.cs">
+      <DependentUpon>uMinistryChartByType.ascx</DependentUpon>
     </Compile>
     <Compile Include="uMinistryChartTotal.ascx.cs">
       <DependentUpon>uMinistryChartTotal.ascx</DependentUpon>

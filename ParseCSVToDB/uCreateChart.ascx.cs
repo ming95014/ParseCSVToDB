@@ -65,9 +65,9 @@ namespace ParseCSVToDB
                 Chart1.Series[0].ChartType == SeriesChartType.Pyramid)
                 Chart1.Legends[0].Enabled = true;  // only show Legend for these 4 types of chart; otherwise, they just showed 'default' for no good purpose
 
+            Chart1.Height = arrResponses.Count() > 11 ? Unit.Pixel(800) : Unit.Pixel(500);
             // label everyone, not default interval of 5
             Chart1.ChartAreas[0].AxisX.Interval = 1;
-            //Chart1.Height = arrRespValues.Count() < 5 ? 300 : 500;
             for (int i = 0; i < arrRespValues.Count(); i++)
                 Chart1.Series["Default"].Points[i].Color = colors[i];
 
