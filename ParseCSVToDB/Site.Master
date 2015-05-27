@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Apps for Alberta</a>
+                    <a class="navbar-brand" runat="server" href="~/">Travel and Expenses</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -80,11 +80,9 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <!--
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Apps for Alberta, by <a title="go to the Contact page" href="Contact.aspx">Ming Chien</a></p>
             </footer>
-            -->
         </div>
     </form>
 </body>

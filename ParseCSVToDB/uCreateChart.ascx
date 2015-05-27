@@ -14,6 +14,7 @@
         <asp:ChartArea Name="ChartArea1" BorderWidth="0" />
     </ChartAreas>
 </asp:Chart>
+<asp:PlaceHolder runat="server" Visible="false">
 <br />
 Chart Type : <asp:DropDownList ID="ddlChartType" runat="server" AutoPostBack="true">
                         <asp:ListItem Value="Area" Text="Area chart type." />
@@ -52,4 +53,4 @@ Chart Type : <asp:DropDownList ID="ddlChartType" runat="server" AutoPostBack="tr
                         <asp:ListItem Value="Stock" Text="Stock chart type." />
                         <asp:ListItem Value="ThreeLineBreak" Text="ThreeLineBreak chart type." />
                     </asp:DropDownList>       
-<br />
+</asp:PlaceHolder>

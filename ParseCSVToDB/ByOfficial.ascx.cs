@@ -35,7 +35,7 @@ namespace ParseCSVToDB
                 e.Row.Cells[0].Text = (++_cnt1).ToString() + ".";
                 DataRow row = ((DataRowView)e.Row.DataItem).Row;
                 e.Row.Cells[1].Text = (++_cnt1).ToString() + ".";
-                e.Row.Cells[1].Text = "<a title='Click to pop-open a new browser to view the details' target='_blank' href='/Analyze1?v=2&name=" + 
+                e.Row.Cells[1].Text = "<a title='Click to pop-open a new browser to view the details' target='_blank' href='Analyze1?v=2&name=" + 
                                                                             Server.UrlEncode(row[3].ToString()) + "'>" + row[3].ToString() + "</a>";
                 String strTotal = row[1].ToString();
                 String strCnt = row[2].ToString();
@@ -56,7 +56,7 @@ namespace ParseCSVToDB
 
         protected void OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            //Response.Redirect("/Analyze1?v=1&top=" + ddlTopN.SelectedValue);
+            //Response.Redirect("Analyze1?v=1&top=" + ddlTopN.SelectedValue);
         }
     }
 }

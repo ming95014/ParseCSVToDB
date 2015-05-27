@@ -71,4 +71,9 @@
             <asp:ListItem Text="Chart By Ministry" Value="5" />
         </asp:DropDownList>
     </div>
+    <script>
+        $('a').filter(function () {
+            return this.innerHTML == "Reports and Analysis";
+        }).css({ color: "#FFFF00" });
+    </script>
 </asp:Content>

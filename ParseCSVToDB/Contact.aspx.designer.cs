@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ParseCSVToDB
+namespace AlbertaSurvey
 {
 
 
