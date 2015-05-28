@@ -11,7 +11,7 @@ From a particular Ministry to an official
 </asp:DropDownList>
 
 <asp:DropDownList ID="ddlOfficial" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="OnSelectedIndexChanged_Official" runat="server" Enabled="false">
-    <asp:ListItem>Select an Official</asp:ListItem>
+    <asp:ListItem><== Please Select a Ministry First</asp:ListItem>
 </asp:DropDownList>
 
 <hr />

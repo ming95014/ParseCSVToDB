@@ -45,6 +45,8 @@ namespace ParseCSVToDB
 
         protected void OnSelectedIndexChanged_Ministry(object sender, EventArgs e)
         {
+            ddlOfficial.Items.Clear();
+            ddlOfficial.Items.Add(new ListItem("Select an Official", ""));
             var subjects = new DataTable();
             using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString))
             {
