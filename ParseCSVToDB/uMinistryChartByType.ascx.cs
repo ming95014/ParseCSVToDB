@@ -16,8 +16,22 @@ namespace ParseCSVToDB
         protected void Page_Load(object sender, EventArgs e)
         {
             if (ddlMinistry.Items.Count == 0)
+            {
                 LoadddlMinistry();
+                LoadddlOfficial();
+                RebindData();
+            }    
+        }
 
+        protected void OnSelectedIndexChanged_ddlMinistry(object sender, EventArgs e)
+        {
+            ddlOfficial.Items.Clear();
+            LoadddlOfficial();
+            RebindData();
+        }
+
+        protected void OnSelectedIndexChanged_ddlOfficial(object sender, EventArgs e)
+        {
             RebindData();
         }
 
@@ -47,17 +61,47 @@ namespace ParseCSVToDB
             }
         }
 
+        private void LoadddlOfficial()
+        {
+            var subjects = new DataTable();
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString))
+            {
+                try
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT DISTINCT Name FROM [dbo].[goa_expenses] WHERE Ministry='" + ddlMinistry.SelectedValue + "' ORDER BY Name;", con);
+                    adapter.Fill(subjects);
+                    ddlOfficial.DataSource = subjects;
+                    ddlOfficial.DataTextField = "Name";
+                    ddlOfficial.DataValueField = "Name";
+                    ddlOfficial.SelectedIndex = 0;
+                    ddlOfficial.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    // Handle the error
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+        }
+
         private void RebindData()
         {
             string strSQL = "SELECT Type, SUM(decAmount) AS Total" +
                             " FROM [dbo].[goa_expenses]" +
                             " WHERE decAmount > 0" +
-                            " AND Ministry='" + ddlMinistry.SelectedValue + "'" +
-                            " AND " + (this.Page as dynamic).selectedDateRangeValue +
+                            " AND Ministry='" + ddlMinistry.SelectedValue + "'";
+            strSQL += (ddlOfficial.SelectedValue == string.Empty) ? "" : " AND NAME='" + ddlOfficial.SelectedValue + "'";
+            strSQL += " AND " + (this.Page as dynamic).selectedDateRangeValue +
                             " GROUP BY Type " +
                             " ORDER BY SUM(decamount) DESC; ";
+            lblSQL.Text = strSQL;
+            litTitle.Text = "Expenses by Type of ";
+            litTitle.Text += (ddlOfficial.SelectedValue == string.Empty) ? ddlMinistry.SelectedValue : ddlOfficial.SelectedValue;
+            litTitle.Text += ". Data Range (" + (this.Page as dynamic).selectedDateRangeText + ")";
 
-            litTitle.Text = "Expenses by Type on " + ddlMinistry.SelectedValue + ". Data Range (" + (this.Page as dynamic).selectedDateRangeText + ")";
             arrResponses = new string[10];
             arrRespValues = new int[10];
             litTable.Text = GetTableHeader();

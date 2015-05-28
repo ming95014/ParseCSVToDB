@@ -25,7 +25,7 @@
         <p>Additionally, it also presents you with charts to :</p>
         <ul>
             <li><a href="Analyze1.aspx?v=5">Show the expenses by ministry in a graphical chart.</a></li>
-            <li><a href="Analyze1.aspx?v=6">Show the expenses by Type of selected ministry in a graphical chart.</a></li>
+            <li><a href="Analyze1.aspx?v=6">Show the expenses by Type of selected ministry or official in a graphical chart.</a></li>
             <!--<li>What are some of the high expenses per Type and are they reasonable?</li>-->
         </ul>
         

@@ -16,6 +16,12 @@
     <br />
     <div style="text-align:left">
         <h3>Select a ministry : </h3>
-        <asp:DropDownList ID="ddlMinistry" runat="server" AutoPostBack="true" />
+        <asp:DropDownList ID="ddlMinistry" runat="server" AutoPostBack="true" OnSelectedIndexChanged="OnSelectedIndexChanged_ddlMinistry" />
+        <br />
+        <h3>Select an official : </h3>
+        <asp:DropDownList ID="ddlOfficial" runat="server" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="OnSelectedIndexChanged_ddlOfficial">
+            <asp:ListItem Text="--Select an Official--" Value="" />
+        </asp:DropDownList>
+        <asp:Label ID="lblSQL" runat="server" Visible="true" ForeColor="Black" />
     </div>
 </div>

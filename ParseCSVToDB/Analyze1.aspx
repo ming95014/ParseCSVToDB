@@ -73,7 +73,7 @@
             <asp:ListItem Text="Start from Expense types in each ministry" Value="3" />
             <asp:ListItem Text="Select an official" Value="4" />
             <asp:ListItem Text="Chart of all Ministries by total expenses" Value="5" />
-            <asp:ListItem Text="Chart by Expense Type of a Ministry" Value="6" />
+            <asp:ListItem Text="Chart by Expense Type of a Ministry or an Official" Value="6" />
         </asp:DropDownList>
     </div>
     <script>

@@ -174,6 +174,10 @@
     <Content Include="CreatePie.aspx" />
     <Content Include="Data.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="images\AppsForAlberta.png" />
+    <Content Include="images\ChallengePost.png" />
+    <Content Include="images\view_sort_ascending.png" />
+    <Content Include="images\view_sort_descending.png" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -421,7 +425,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
