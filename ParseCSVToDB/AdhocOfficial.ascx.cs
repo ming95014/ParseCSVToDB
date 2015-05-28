@@ -25,7 +25,7 @@ namespace ParseCSVToDB
             {
                 try
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT DISTINCT Ministry FROM [Alberta3].[dbo].[goa_expenses] ORDER BY Ministry;", con);
+                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT DISTINCT Ministry FROM [dbo].[goa_expenses] ORDER BY Ministry;", con);
                     adapter.Fill(subjects);
                     ddlMinistry.DataSource = subjects;
                     ddlMinistry.DataTextField = "Ministry";
@@ -50,7 +50,7 @@ namespace ParseCSVToDB
             {
                 try
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT DISTINCT Name FROM [Alberta3].[dbo].[goa_expenses] WHERE Ministry='" + ddlMinistry.SelectedValue + "' ORDER BY Name;", con);
+                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT DISTINCT Name FROM [dbo].[goa_expenses] WHERE Ministry='" + ddlMinistry.SelectedValue + "' ORDER BY Name;", con);
                     adapter.Fill(subjects);
                     ddlOfficial.DataSource = subjects;
                     ddlOfficial.DataTextField = "Name";
@@ -91,7 +91,7 @@ namespace ParseCSVToDB
             {
                 try
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT DISTINCT Name, Name + '; ' + Position + '; ' + Ministry As Text  FROM [Alberta3].[dbo].[goa_expenses] WHERE Name LIKE '%" + tbName.Text + "%' ORDER BY Name;", con);
+                    SqlDataAdapter adapter = new SqlDataAdapter("SELECT DISTINCT Name, Name + '; ' + Position + '; ' + Ministry As Text  FROM [dbo].[goa_expenses] WHERE Name LIKE '%" + tbName.Text + "%' ORDER BY Name;", con);
                     adapter.Fill(subjects);
                     ddlOfficial2.DataSource = subjects;
                     ddlOfficial2.DataTextField = "Text";
