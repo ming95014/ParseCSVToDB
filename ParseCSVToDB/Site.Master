@@ -81,7 +81,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Apps for Alberta, by <a title="go to the Contact page" href="Contact.aspx">Ming Chien</a></p>
+                <p>&copy; <%: DateTime.Now.Year %> - Challenge Post | Apps for Alberta | Travel and Expenses, by <a title="go to the Contact page" href="Contact.aspx">Ming Chien</a></p>
             </footer>
         </div>
     </form>

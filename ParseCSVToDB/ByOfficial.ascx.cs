@@ -34,7 +34,6 @@ namespace ParseCSVToDB
             {
                 e.Row.Cells[0].Text = (++_cnt1).ToString() + ".";
                 DataRow row = ((DataRowView)e.Row.DataItem).Row;
-                e.Row.Cells[1].Text = (++_cnt1).ToString() + ".";
                 e.Row.Cells[1].Text = "<a title='Click to pop-open a new browser to view the details' target='_blank' href='Analyze1?v=2&d=" + (this.Page as dynamic).selectedDateIndex + 
                                                                                                             "&name=" + Server.UrlEncode(row[3].ToString()) + "'>" + row[3].ToString() + "</a>";
                 String strTotal = row[1].ToString();
