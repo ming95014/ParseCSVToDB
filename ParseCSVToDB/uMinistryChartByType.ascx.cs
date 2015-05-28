@@ -15,12 +15,15 @@ namespace ParseCSVToDB
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            var boolRebindData = false;
             if (ddlMinistry.Items.Count == 0)
             {
                 LoadddlMinistry();
                 LoadddlOfficial();
+                boolRebindData = true;
+            }
+            if (boolRebindData)
                 RebindData();
-            }    
         }
 
         protected void OnSelectedIndexChanged_ddlMinistry(object sender, EventArgs e)
