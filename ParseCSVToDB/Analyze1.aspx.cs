@@ -22,7 +22,7 @@ namespace ParseCSVToDB
         }
 
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {           
             if (!IsPostBack)
             {
                 var viewPassedIn = Request.QueryString["v"] != null ? Request.QueryString["v"].ToString() : "0";
@@ -39,6 +39,7 @@ namespace ParseCSVToDB
                 var datePassedIn = Request.QueryString["d"] != null ? Request.QueryString["d"].ToString() : "0";
                 ddlDateRange.SelectedIndex = Convert.ToInt16(datePassedIn);
             }
+            divOptions.Visible = ddl1.SelectedValue != "4";
             txReport.Text = ddl1.SelectedItem.Text + DateTime.Now.ToString("s").Replace(" ", "-");
         }
 

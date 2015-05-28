@@ -62,20 +62,20 @@
         <asp:RequiredFieldValidator ControlToValidate="txReport" ErrorMessage="Required" runat="server" />
         <asp:Button ID="btnReport" runat="server" Text="Export" OnClick="btnExport_Click" />
         <hr />
-        <!-- Ohter Reports -->
-        <h3>Explore Other Reports : </h3>
-        <a runat="server" href="~/About">Back to Objectives and Context Data</a><br />
-        Or Jump to other reports :
-        <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
-            <asp:ListItem Text="Start from Ministries" Value="0" />
-            <asp:ListItem Text="Start from Officials with high expenses" Value="1" />
-            <asp:ListItem Text="Start from all high Expenses" Value="2" />
-            <asp:ListItem Text="Start from Expense types in each ministry" Value="3" />
-            <asp:ListItem Text="Select an official" Value="4" />
-            <asp:ListItem Text="Chart of all Ministries by total expenses" Value="5" />
-            <asp:ListItem Text="Chart by Expense Type of a Ministry or an Official" Value="6" />
-        </asp:DropDownList>
     </div>
+    <!-- Ohter Reports -->
+    <h3>Explore Other Reports : </h3>
+    <a runat="server" href="~/About">Back to Objectives and Context Data</a><br />
+    Or Jump to other reports :
+    <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">
+        <asp:ListItem Text="Start from Ministries" Value="0" />
+        <asp:ListItem Text="Start from Officials with high expenses" Value="1" />
+        <asp:ListItem Text="Start from all high Expenses" Value="2" />
+        <asp:ListItem Text="Start from Expense types in each ministry" Value="3" />
+        <asp:ListItem Text="Select an official" Value="4" />
+        <asp:ListItem Text="Chart of all Ministries by total expenses" Value="5" />
+        <asp:ListItem Text="Chart by Expense Type of a Ministry or an Official" Value="6" />
+    </asp:DropDownList>   
     <script>
         $('a').filter(function () {
             return this.innerHTML == "Reports and Analysis";
