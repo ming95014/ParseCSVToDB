@@ -31,7 +31,7 @@
     </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" />
-<asp:Label ID="lblSQL" runat="server" Visible="true" />
+<asp:Label ID="lblSQL" runat="server" Visible="true" ForeColor="White" />
 <hr />
 <h3>Additional Options</h3>
 <asp:Literal ID="litError" runat="server" />

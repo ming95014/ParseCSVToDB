@@ -24,37 +24,39 @@
     </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" />
-<asp:Label ID="lblSQL" runat="server" Visible="true" />
-<h3>Legends and Analysis Summary</h3>
-<table cellspacing="0" cellpadding="4" border="1" width="100%">
-    <tr bgcolor="cornsilk">
-        <td width="50%" align="center"><b>Legend</b></td>
-        <td width="50%" align="center"><b>Analysis Summary</b></td>
-    </tr>
-    <tr>
-        <td>
-            <ul>
-                <li><b>B. Official</b> -- Name of official.</li>
-                <li><b>C. Ministry</b> -- ministry this official works in.</li>
-                <li><b>D. Total Expenses</b> -- total amount of expenses filed by this ministries.</li>
-                <li><b>E. # of Expenses</b> -- total number of expenses filed by this ministries.</li>
-                <li><b>F. Average amount per Expense (D/E)</b> -- division of column D over E.</li>
-            </ul>
-        </td>
-        <td valign="top">
-            <ul>
-                <li>Top 50 officials with the higest <b>amount</b> or <b>number</b> or <b>average per expense</b> by clicking on the headers</li>
-                <!--
-                <li><b>Human Services</b> has expensed the <b>most by amount</b> of all ministries-- <b>$2,900,134.89</b> with <b>590 distinct officials submitting expenses.</b></li>
-                <li><b>Human Services</b> has expensed the <b>most by number</b> of all ministries-- <b>48,099</b></li>
-                <li><b>International and Intergovernmental Relations</b> has the <b>higest average per expense</b> of all ministries-- <b>$149.69</b></li>
-                <li><b>International and Intergovernmental Relations</b> has the <b>higest average expenses per official</b> of all ministries-- <b>$22,123.05</b></li>
-                <li><b>Engergy</b> has the <b>higest # of expenses per official</b> of all ministries-- <b>166.59</b></li>
-                -->
-            </ul>
-        </td>
-    </tr>
-</table>
+<asp:Label ID="lblSQL" runat="server" Visible="true" ForeColor="White" />
+<asp:Panel ID="pnlSummary" runat="server" Visible="false" >
+    <h3>Legends and Analysis Summary</h3>
+    <table cellspacing="0" cellpadding="4" border="1" width="100%">
+        <tr bgcolor="cornsilk">
+            <td width="50%" align="center"><b>Legend</b></td>
+            <td width="50%" align="center"><b>Analysis Summary</b></td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><b>B. Official</b> -- Name of official.</li>
+                    <li><b>C. Ministry</b> -- ministry this official works in.</li>
+                    <li><b>D. Total Expenses</b> -- total amount of expenses filed by this ministries.</li>
+                    <li><b>E. # of Expenses</b> -- total number of expenses filed by this ministries.</li>
+                    <li><b>F. Average amount per Expense (D/E)</b> -- division of column D over E.</li>
+                </ul>
+            </td>
+            <td valign="top">
+                <ul>
+                    <li>Top 50 officials with the higest <b>amount</b> or <b>number</b> or <b>average per expense</b> by clicking on the headers</li>
+                    <!--
+                    <li><b>Human Services</b> has expensed the <b>most by amount</b> of all ministries-- <b>$2,900,134.89</b> with <b>590 distinct officials submitting expenses.</b></li>
+                    <li><b>Human Services</b> has expensed the <b>most by number</b> of all ministries-- <b>48,099</b></li>
+                    <li><b>International and Intergovernmental Relations</b> has the <b>higest average per expense</b> of all ministries-- <b>$149.69</b></li>
+                    <li><b>International and Intergovernmental Relations</b> has the <b>higest average expenses per official</b> of all ministries-- <b>$22,123.05</b></li>
+                    <li><b>Engergy</b> has the <b>higest # of expenses per official</b> of all ministries-- <b>166.59</b></li>
+                    -->
+                </ul>
+            </td>
+        </tr>
+    </table>
+</asp:Panel>
 
 <h3>Additional Options</h3>
 <asp:Literal ID="litError" runat="server" />

@@ -27,9 +27,9 @@
     </Columns>
 </asp:GridView>
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" />
-<asp:Label ID="lblSQL" runat="server" Visible="true" />
+<asp:Label ID="lblSQL" runat="server" Visible="true" ForeColor="White" />
 
-<asp:Panel ID="pnlSummary" runat="server">
+<asp:Panel ID="pnlSummary" runat="server" Visible="false" >
     <h3>Legends and Analysis Summary</h3>
     <table cellspacing="0" cellpadding="4" border="1" width="100%">
         <tr bgcolor="cornsilk">
