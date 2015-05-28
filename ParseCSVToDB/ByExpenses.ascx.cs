@@ -47,8 +47,8 @@ namespace ParseCSVToDB
                 e.Row.Cells[0].Text = (++_cnt1).ToString() + ".";
                 DataRow row = ((DataRowView)e.Row.DataItem).Row;
                 if (Request.QueryString["name"] == null)
-                    e.Row.Cells[1].Text = "<a title='Click to pop-open a new browser to view the details' target='_blank' href='Analyze1?v=2&name=" +
-                                                                            Server.UrlEncode(row[2].ToString()) + "'>" + row[2].ToString() + "</a>";
+                    e.Row.Cells[1].Text = "<a title='Click to pop-open a new browser to view the details' target='_blank' href='Analyze1?v=2&d=" + (this.Page as dynamic).selectedDateIndex +
+                                                                                                            "&name=" + Server.UrlEncode(row[2].ToString()) + "'>" + row[2].ToString() + "</a>";
                 e.Row.Cells[9].Text = "<a title='Click to pop-open a new browser to view the receipt' target='_blank' href='" + row[10].ToString() + "'>receipt</a>";
                 String strAmount = row[8].ToString();
                 dTotal1 += Convert.ToDecimal(strAmount);

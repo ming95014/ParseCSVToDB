@@ -53,8 +53,8 @@ namespace ParseCSVToDB
                 DataRow row = ((DataRowView)e.Row.DataItem).Row;
                 String strTotal = row[1].ToString();
                 String strCnt = row[2].ToString();
-                e.Row.Cells[1].Text = "<a title='Click to pop-open a new browser to view the details' target='_blank' href='Analyze1?v=2&ministry=" +
-                                                                            Server.UrlEncode(row[0].ToString()) + "'>" + row[0].ToString() + "</a>";
+                e.Row.Cells[1].Text = "<a title='Click to pop-open a new browser to view the details' target='_blank' href='Analyze1?v=2&d=" + (this.Page as dynamic).selectedDateIndex +
+                                                                                                    "&ministry=" + Server.UrlEncode(row[0].ToString()) + "'>" + row[0].ToString() + "</a>";
                 int iCnt = 0;
                 if (!boolSmallTable)
                 {

@@ -46,10 +46,10 @@
         <h3>Change date ranges in the report: </h3>
         See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
         <asp:ListItem Text="All Avaialbe Data" Value="1=1" />
-            <asp:ListItem Text="1/01/2015 to  1/29/2015" Value="DTDateIncurred Between '1/01/2015' AND '12/31/2015'"/>
-            <asp:ListItem Text="1/01/2014 to 12/31/2014" Value="DTDateIncurred Between '1/01/2014' AND '12/31/2014'"/>
-            <asp:ListItem Text="1/01/2013 to 12/31/2013" Value="DTDateIncurred Between '1/01/2013' AND '12/31/2013'"/>
-            <asp:ListItem Text="1/10/2012 to 12/31/2012" Value="DTDateIncurred Between '1/10/2012' AND '12/31/2012'"/>  
+            <asp:ListItem Text="1/01/2015 to  1/29/2015" Value="DTDateIncurred Between '1/01/2015' AND '1/29/2015'"/>
+            <asp:ListItem Text="2014" Value="DTDateIncurred Between '1/01/2014' AND '12/31/2014'"/>
+            <asp:ListItem Text="2013" Value="DTDateIncurred Between '1/01/2013' AND '12/31/2013'"/>
+            <asp:ListItem Text="2012" Value="DTDateIncurred Between '1/10/2012' AND '12/31/2012'"/>
         </asp:DropDownList>
         <hr />
         <!-- Export Reports -->
