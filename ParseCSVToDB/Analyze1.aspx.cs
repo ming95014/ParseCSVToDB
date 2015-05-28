@@ -35,6 +35,7 @@ namespace ParseCSVToDB
                 {
                     mv.ActiveViewIndex = 0;
                 }
+
                 var datePassedIn = Request.QueryString["d"] != null ? Request.QueryString["d"].ToString() : "0";
                 ddlDateRange.SelectedIndex = Convert.ToInt16(datePassedIn);
             }
