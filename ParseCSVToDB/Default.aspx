@@ -12,7 +12,7 @@
     </p>
 
     <p>
-        This application specifially focuses on the following dataset : 
+        This application specifically focuses on the following dataset : 
         <a target="_blank" href="http://data.alberta.ca/data/public-disclosure-travel-and-expenses">Public Disclosure of Travel and Expenses</a>
     </p>
 

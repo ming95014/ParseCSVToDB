@@ -45,7 +45,7 @@
         <!-- Date Range -->
         <h3>Change date ranges in the report: </h3>
         See : <asp:DropDownList ID="ddlDateRange" runat="server" AutoPostBack="true">
-        <asp:ListItem Text="All Avaialbe Data" Value="1=1" />
+        <asp:ListItem Text="All Available Data" Value="1=1" />
             <asp:ListItem Text="1/01/2015 to  1/29/2015" Value="DTDateIncurred Between '1/01/2015' AND '1/29/2015'"/>
             <asp:ListItem Text="2014" Value="DTDateIncurred Between '1/01/2014' AND '12/31/2014'"/>
             <asp:ListItem Text="2013" Value="DTDateIncurred Between '1/01/2013' AND '12/31/2013'"/>
@@ -64,7 +64,7 @@
         <hr />
     </div>
     <!-- Ohter Reports -->
-    <h3>Explore Other Reports : </h3>
+    <h3>Explore Other Reports: </h3>
     <a runat="server" href="~/About">Back to Objectives and Context Data</a><br />
     Or Jump to other reports :
     <asp:DropDownList ID="ddl1" runat="server" OnSelectedIndexChanged="OnSelectedIndexChanged" AutoPostBack="true">

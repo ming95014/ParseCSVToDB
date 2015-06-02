@@ -23,7 +23,7 @@
     <h3 style="color:red">Known Issues:</h3>
     <ul>
         <li>Recipts links do not show up correctly in Internet Explorer.</li>
-        <li>When Exporting report to Excel format, and opening the report will get a warning about format difference, it's OK to click on <b>Yes</b> to proceede to open the saved Excel file.</li>
+        <li>When Exporting report to Excel format, and opening the report will get a warning about format difference, it's OK to click on <b>Yes</b> to proceed to open the saved Excel file.</li>
     </ul>
     <script>
         $('a').filter(function () {
