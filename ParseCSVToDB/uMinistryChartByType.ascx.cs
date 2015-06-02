@@ -15,15 +15,12 @@ namespace ParseCSVToDB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var boolRebindData = false;
             if (ddlMinistry.Items.Count == 0)
             {
                 LoadddlMinistry();
                 LoadddlOfficial();
-                boolRebindData = true;
             }
-            if (boolRebindData)
-                RebindData();
+            RebindData();
         }
 
         protected void OnSelectedIndexChanged_ddlMinistry(object sender, EventArgs e)
@@ -115,10 +112,11 @@ namespace ParseCSVToDB
                 litTable.Text += ExecuteSQL(connection, strSQL);
             }
             // Add the chart
+            if (pnlRight.HasControls()) pnlRight.Controls.Clear(); 
             uCreateChart uCreateChart = LoadControl("~/uCreateChart.ascx") as uCreateChart;
             uCreateChart.Responses = arrResponses;
             uCreateChart.RespValues = arrRespValues;
-            uCreateChart.ChartName = litTitle.Text.Replace("/","_").Replace(" ","") + ".png";
+            uCreateChart.ChartName = litTitle.Text.Replace("/","_").Replace(" ","").Replace(",","") + ".png";
             pnlRight.Controls.Add(uCreateChart);
         }
 
