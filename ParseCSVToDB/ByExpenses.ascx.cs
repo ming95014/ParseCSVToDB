@@ -68,7 +68,15 @@ namespace ParseCSVToDB
             if (Request.QueryString["name"] != null)
             {
                 strAndClause += "AND name=" + Common.CommonLib.Quote(Request.QueryString["name"].ToString());
-                litTitle.Text = "Top " + ddlTopN.Text + " expenses by " + Request.QueryString["name"].ToString() + " (" + (this.Page as dynamic).selectedDateRangeText + ")";
+                //litTitle.Text = "Top " + ddlTopN.Text + " expenses by " + Request.QueryString["name"].ToString() + " (" + (this.Page as dynamic).selectedDateRangeText + ")";
+                string strType = string.Empty;
+                if (Request.QueryString["type"] != null)
+                {
+                    strAndClause += "AND type=" + Common.CommonLib.Quote(Request.QueryString["type"].ToString());
+                    strType = " (of Type=" + Request.QueryString["type"].ToString() + ")";
+                }
+                strAndClause += " AND Name=" + Common.CommonLib.Quote(Request.QueryString["name"].ToString());
+                litTitle.Text = " Top " + ddlTopN.Text + strType + " expenses by " + Request.QueryString["name"].ToString() + " (" + (this.Page as dynamic).selectedDateRangeText + ")";
             }
                 
             else if (Request.QueryString["ministry"] != null)
@@ -78,9 +86,7 @@ namespace ParseCSVToDB
                 {
                     strAndClause += "AND type=" + Common.CommonLib.Quote(Request.QueryString["type"].ToString());
                     strType = " (of Type=" + Request.QueryString["type"].ToString() + ")";
-                }
-                    
-
+                }                   
                 strAndClause += " AND ministry=" + Common.CommonLib.Quote(Request.QueryString["ministry"].ToString());
                 litTitle.Text = " Top " + ddlTopN.Text + strType + " expenses by " + Request.QueryString["ministry"].ToString() + " (" + (this.Page as dynamic).selectedDateRangeText + ")";
             }

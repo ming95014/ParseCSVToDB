@@ -160,7 +160,7 @@ namespace ParseCSVToDB
                                 {                                   
                                     if (i == 0)
                                     {
-                                        strRet += "<td>" + reader.GetValue(i).ToString();
+                                        strRet += "<td>" + GetLink(reader.GetValue(i).ToString());
                                         arrResponses[iNum] = reader.GetValue(0).ToString();
                                     }                                 
                                     else if (i == 1)
@@ -188,6 +188,17 @@ namespace ParseCSVToDB
                     strRet += "</table>";
                 }
             }
+            return strRet;
+        }
+
+        private string GetLink(string strLink)
+        {
+            string strRet = "<a title='Click to pop-open a new browser to view the details' target='_blank' href='Analyze1?v=2&d=" + 
+                            (this.Page as dynamic).selectedDateIndex + "&type=" + Server.UrlEncode(strLink);
+            strRet += (ddlOfficial.SelectedValue != string.Empty) ?
+                        "&name=" + Server.UrlEncode(ddlOfficial.SelectedValue) :
+                        "&ministry=" + Server.UrlEncode(ddlMinistry.SelectedValue);
+            strRet += "'>" + strLink + "</a>";
             return strRet;
         }
     }
