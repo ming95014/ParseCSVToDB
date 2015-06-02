@@ -41,6 +41,7 @@ namespace ParseCSVToDB
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 _cnt1 = 0;
+                dTotal1 = 0;
             }
             else if (e.Row.RowType == DataControlRowType.DataRow)
             {

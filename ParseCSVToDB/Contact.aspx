@@ -20,6 +20,11 @@
         <strong>Email:</strong>   <a href="mailto:mingch@yahoo.com">mingch@yahoo.com</a><br />
         <!--<strong>Marketing:</strong> <a href="mailto:mingch@yahoo.com">mingch@yahoo.com</a>-->
     </address>
+    <h3 style="color:red">Known Issues:</h3>
+    <ul>
+        <li>Recipts links do not show up correctly in Internet Explorer.</li>
+        <li>When Exporting report to Excel format, and opening the report will get a warning about format difference, it's OK to click on <b>Yes</b> to proceede to open the saved Excel file.</li>
+    </ul>
     <script>
         $('a').filter(function () {
             return this.innerHTML == "Author and Credits";

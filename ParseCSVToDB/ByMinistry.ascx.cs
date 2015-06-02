@@ -39,6 +39,9 @@ namespace ParseCSVToDB
             if (e.Row.RowType == DataControlRowType.Header)
             {
                 _cnt1 = 0;
+                dTotal1 = 0;
+                iNumExpenses1 = 0;
+                iOfficials1 = 0;
                 if (boolSmallTable)
                 {
                     pnlSummary.Visible = false;
