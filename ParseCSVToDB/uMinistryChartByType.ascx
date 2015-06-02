@@ -22,6 +22,6 @@
         <asp:DropDownList ID="ddlOfficial" runat="server" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="OnSelectedIndexChanged_ddlOfficial">
             <asp:ListItem Text="--Select an Official--" Value="" />
         </asp:DropDownList>
-        <asp:Label ID="lblSQL" runat="server" Visible="true" ForeColor="Black" />
+        <asp:Label ID="lblSQL" runat="server" Visible="true" ForeColor="white" />
     </div>
 </div>

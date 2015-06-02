@@ -128,9 +128,9 @@ namespace ParseCSVToDB
 
             sb.Append("<table cellspacing='0' cellpadding='4'>");
             sb.Append("<tr bgcolor='cornsilk'>");
-            sb.Append("<td>#</td>");
-            sb.Append("<td>Expense Type</td>");
-            sb.Append("<td>Expense Amount</td>");
+            sb.Append("<td><b>#</b></td>");
+            sb.Append("<td><b>Expense Type</b></td>");
+            sb.Append("<td><b>Expense Amount</b></td>");
             //sb.Append("<td>Percent</td>");
             sb.Append("</tr>");
 
@@ -140,6 +140,7 @@ namespace ParseCSVToDB
         private string ExecuteSQL(SqlConnection connection, string strSQL)
         {
             int iNum = 0;
+            decimal dTotal1 = 0;
             var strRet = string.Empty;
             using (SqlCommand cmd = new SqlCommand(strSQL, connection))
             {
@@ -150,24 +151,32 @@ namespace ParseCSVToDB
                     {
                         // Check is the reader has any rows at all before starting to read.
                         if (!reader.HasRows)
-                            strRet = "<tr><td>No data found.</td></tr>";
+                            strRet = "<tr><td><font color='red'>No data found.</font></td></tr>";
                         else
                         {
                             while (reader.Read())
                             {
-                                strRet += "<tr><td>" + (iNum + 1).ToString() + "</td>";
+                                string strShade = iNum % 2 == 1 ? " bgcolor='lightgrey'" : "";
+                                strRet += "<tr " + strShade + "><td>" + (iNum + 1).ToString() + "</td>";
                                 for (int i = 0; i < reader.FieldCount; i++)
-                                {
-                                    //string str = reader.GetValue(i).ToString();
-                                    strRet += "<td>" + String.Format("{0:N0}", reader.GetValue(i)) + "</td>";
+                                {                                   
                                     if (i == 0)
+                                    {
+                                        strRet += "<td>" + reader.GetValue(i).ToString();
                                         arrResponses[iNum] = reader.GetValue(0).ToString();
+                                    }                                 
                                     else if (i == 1)
+                                    {
+                                        strRet += "<td align='right'>$" + String.Format("{0:N2}", reader.GetValue(i));
+                                        dTotal1 += Convert.ToDecimal(reader.GetValue(i));
                                         arrRespValues[iNum] = Convert.ToInt32(reader.GetValue(1));
+                                    }
+                                    strRet += "</td>";
                                 }
                                 iNum++;
                                 strRet += "</tr>";
                             }
+                            strRet += "<tr bgcolor='cornsilk'><td></td><td><b>Total</b></td><td align='right'><b>$" + String.Format("{0:N2}", dTotal1) + "</b></td></tr>";
                         }
                     }
                 }
